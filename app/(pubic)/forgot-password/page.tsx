@@ -6,7 +6,7 @@ export default function ForgotPassword() {
   )
 }
 
-// import {forgotPassword} from '@/app/actions'
+// import {forgotPassword} from '@/app/(actions)/user/actions'
 // import {Input} from '@/components/ui/input'
 // import {Label} from '@/components/ui/label'
 // import Link from 'next/link'

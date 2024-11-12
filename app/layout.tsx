@@ -24,6 +24,36 @@ export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
   title: 'egxprod',
   description: 'The All-In-One Productivity App!',
+  referrer: 'origin-when-cross-origin',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    siteName: 'egxprod.vercel.app',
+    title: 'egxprod',
+    url: 'https://egxprod.vercel.app',
+    locale: 'en_US',
+    images: [
+      {
+        url: `https://egxprod.vercel.app/opengraph-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'egxprod-og-image',
+      },
+    ],
+  },
+  icons: {
+    shortcut: 'https://egxprod.vercel.app/favicon.ico',
+  },
 }
 
 export default async function RootLayout({children}: {children: React.ReactNode}) {

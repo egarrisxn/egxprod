@@ -6,7 +6,7 @@ export default function ResetPassword() {
   )
 }
 
-// import {resetPassword} from '@/app/actions'
+// import {resetPassword} from '@/app/(actions)/user/actions'
 // import {Input} from '@/components/ui/input'
 // import {Label} from '@/components/ui/label'
 

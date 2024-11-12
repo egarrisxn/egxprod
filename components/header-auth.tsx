@@ -1,4 +1,4 @@
-import {signout} from '@/app/actions'
+import {signout} from '@/app/(actions)/user/actions'
 import {Button} from './ui/button'
 import {createClient} from '@/utils/supabase/server'
 import Link from 'next/link'

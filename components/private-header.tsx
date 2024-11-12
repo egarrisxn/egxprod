@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function PrivateHeader() {
   return (
     <div className='w-full bg-accent'>
-      <div className='mx-auto flex w-full max-w-5xl items-center justify-between p-3 text-sm text-foreground sm:px-5'>
+      <div className='mx-auto flex w-full max-w-7xl items-center justify-between p-3 text-sm text-foreground sm:px-5'>
         <div className='flex gap-3'>
           <InfoIcon size='16' strokeWidth={2} />
           This is a protected page that you can only see as an authenticated user

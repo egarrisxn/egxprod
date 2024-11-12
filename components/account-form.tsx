@@ -1,8 +1,11 @@
 'use client'
 import {useCallback, useEffect, useState} from 'react'
 import {createClient} from '@/utils/supabase/client'
-import {type User} from '@supabase/supabase-js'
+import {Input} from './ui/input'
+import {Label} from './ui/label'
+// import {Button} from './ui/button'
 import Avatar from './avatar'
+import {type User} from '@supabase/supabase-js'
 
 export default function AccountForm({user}: {user: User | null}) {
   const supabase = createClient()
@@ -77,7 +80,7 @@ export default function AccountForm({user}: {user: User | null}) {
   }
 
   return (
-    <div className='form-widget'>
+    <form className='mx-auto flex min-w-64 flex-col items-center justify-center gap-4'>
       <Avatar
         uid={user?.id ?? null}
         url={avatar_url}
@@ -87,55 +90,51 @@ export default function AccountForm({user}: {user: User | null}) {
           updateProfile({fullname, username, website, avatar_url: url})
         }}
       />
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input id='email' type='text' value={user?.email} disabled />
-      </div>
-      <div>
-        <label htmlFor='fullName'>Full Name</label>
-        <input
+      <div className='mt-8 flex flex-col gap-2 [&>input]:mb-3'>
+        <Label htmlFor='email'>Email</Label>
+        <Input id='email' type='text' value={user?.email} disabled />
+
+        <Label htmlFor='fullName'>Full Name</Label>
+        <Input
           id='fullName'
           type='text'
           value={fullname || ''}
           onChange={(e) => setFullname(e.target.value)}
         />
-      </div>
-      <div>
-        <label htmlFor='username'>Username</label>
-        <input
+
+        <Label htmlFor='username'>Username</Label>
+        <Input
           id='username'
           type='text'
           value={username || ''}
           onChange={(e) => setUsername(e.target.value)}
         />
-      </div>
-      <div>
-        <label htmlFor='website'>Website</label>
-        <input
+
+        <Label htmlFor='website'>Website</Label>
+        <Input
           id='website'
           type='url'
           value={website || ''}
           onChange={(e) => setWebsite(e.target.value)}
         />
-      </div>
 
-      <div>
         <button
-          className='button primary block'
+          className='inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border border-input bg-background px-4 py-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'
           onClick={() => updateProfile({fullname, username, website, avatar_url})}
           disabled={loading}
         >
           {loading ? 'Loading ...' : 'Update'}
         </button>
-      </div>
 
-      <div>
-        <form action='/auth/signout' method='post'>
-          <button className='button block' type='submit'>
+        {/* <form action='/auth/signout' method='post'>
+          <button
+            className='inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border border-input bg-background px-4 py-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'
+            type='submit'
+          >
             Sign out
           </button>
-        </form>
+        </form> */}
       </div>
-    </div>
+    </form>
   )
 }

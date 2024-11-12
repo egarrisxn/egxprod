@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react'
 import {createClient} from '@/utils/supabase/client'
 import Image from 'next/image'
 
-export default function Avatar({
+export default function UserAvatar({
   uid,
   url,
   size,
@@ -55,9 +55,8 @@ export default function Avatar({
       }
 
       onUpload(filePath)
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
-      alert('Error uploading avatar!')
+      alert(error || 'Error uploading avatar!')
     } finally {
       setUploading(false)
     }
@@ -71,16 +70,17 @@ export default function Avatar({
           height={size}
           src={avatarUrl}
           alt='Avatar'
-          className='avatar image'
+          className='max-w-full overflow-hidden rounded-md object-cover'
           style={{height: size, width: size}}
         />
       ) : (
-        <div className='avatar no-image' style={{height: size, width: size}} />
+        <div
+          className='max-w-full overflow-hidden rounded-md border bg-[#ffffff33] object-cover'
+          style={{height: size, width: size}}
+        />
       )}
       <div style={{width: size}}>
-        <label className='button primary block' htmlFor='single'>
-          {uploading ? 'Uploading ...' : 'Upload'}
-        </label>
+        <label htmlFor='single'>{uploading ? 'Uploading ...' : 'Upload'}</label>
         <input
           style={{
             visibility: 'hidden',

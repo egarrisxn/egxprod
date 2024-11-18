@@ -1,12 +1,6 @@
 'use client'
 import {EventItem} from './event-item'
-import type {Event} from '@/lib/interface'
-
-export interface EventListProps {
-  events: Event[]
-  onEditEvent: (event: Event) => void
-  onDeleteEvent: (event: Event) => void
-}
+import type {EventListProps} from '@/lib/types'
 
 export function EventList({events, onEditEvent, onDeleteEvent}: EventListProps) {
   return events.length > 0 ? (

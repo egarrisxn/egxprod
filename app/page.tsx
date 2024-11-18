@@ -1,7 +1,9 @@
 export default function HomePage() {
   return (
-    <div className='mx-auto flex min-h-screen w-full max-w-5xl items-center justify-center p-4'>
-      <h1>Hello, world.</h1>
-    </div>
+    <section className='bg-secondary'>
+      <div className='mx-auto flex w-full items-center justify-center p-4 pt-20 text-center xl:pt-8'>
+        <h1 className='shadow-txt fluid-txt'>Let&apos;s get productive!</h1>
+      </div>
+    </section>
   )
 }

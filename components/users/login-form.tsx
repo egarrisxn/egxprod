@@ -4,8 +4,8 @@ import {useRouter} from 'next/navigation'
 import {zodResolver} from '@hookform/resolvers/zod'
 import {SubmitHandler, useForm} from 'react-hook-form'
 import {LoginUserInput, loginUserSchema} from '@/lib/user-schema'
-import {createSupabaseBrowserClient} from '@/lib/supabase/client'
-import {signInWithEmailAndPassword} from '../_actions'
+import {createClient} from '@/lib/supabase/client'
+import {signInUser} from '@/app/_actions'
 import Image from 'next/image'
 import toast from 'react-hot-toast'
 
@@ -13,7 +13,7 @@ export function LoginForm() {
   const router = useRouter()
   const [error, setError] = useState('')
   const [isPending, startTransition] = useTransition()
-  const supabase = createSupabaseBrowserClient()
+  const supabase = createClient()
 
   const methods = useForm<LoginUserInput>({
     resolver: zodResolver(loginUserSchema),
@@ -28,7 +28,7 @@ export function LoginForm() {
 
   const onSubmitHandler: SubmitHandler<LoginUserInput> = async (values) => {
     startTransition(async () => {
-      const result = await signInWithEmailAndPassword(values)
+      const result = await signInUser(values)
 
       const {error} = JSON.parse(result)
       if (error?.message) {

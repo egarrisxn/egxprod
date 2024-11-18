@@ -1,24 +1,24 @@
-import {createSupabaseServerClient} from '@/lib/supabase/server'
+import {createClient} from '@/lib/supabase/server'
 import {signOutUser} from '@/app/_actions'
 import {Button} from './ui/button'
 import Link from 'next/link'
 
 export default async function HeaderAuth() {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {
     data: {user},
   } = await supabase.auth.getUser()
 
   return user ? (
-    <ul className='flex items-center gap-4'>
+    <ul className='flex items-center gap-1 sm:gap-2'>
       <li>
         <Button asChild variant='link'>
           <Link href='/profile'>Profile</Link>
         </Button>
       </li>
       <li>
-        <form action={signOutUser} className='x'>
+        <form action={signOutUser}>
           <Button variant='link' type='submit'>
             Logout
           </Button>
@@ -26,19 +26,15 @@ export default async function HeaderAuth() {
       </li>
     </ul>
   ) : (
-    <ul className='flex items-center gap-4'>
+    <ul className='flex items-center gap-1 sm:gap-2'>
       <li>
         <Button asChild variant='link'>
-          <Link href='/register' className='x'>
-            Register
-          </Link>
+          <Link href='/register'>Register</Link>
         </Button>
       </li>
       <li>
         <Button asChild variant='link'>
-          <Link href='/login' className='x'>
-            Login
-          </Link>
+          <Link href='/login'>Login</Link>
         </Button>
       </li>
     </ul>

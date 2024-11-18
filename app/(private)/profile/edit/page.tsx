@@ -1,10 +1,10 @@
-import {createSupabaseServerClient} from '@/lib/supabase/server'
+import {createClient} from '@/lib/supabase/server'
 import {redirect} from 'next/navigation'
-import AccountForm from '@/components/account-form'
+import AccountForm from '@/components/users/account-form'
 import PrivateHeader from '@/components/private-header'
 
 export default async function EditProfilePage() {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {
     data: {user},

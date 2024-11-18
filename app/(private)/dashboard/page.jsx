@@ -1,4 +1,4 @@
-import {createSupabaseServerClient} from '@/lib/supabase/server'
+import {createClient} from '@/lib/supabase/server'
 import {redirect} from 'next/navigation'
 import {List, Files, Calendar} from 'lucide-react'
 import PrivateHeader from '@/components/private-header'
@@ -7,7 +7,7 @@ import NoteList from '@/components/notes/note-list'
 import CalendarView from '@/components/calendar/calendar-view'
 
 export default async function DashboardPage() {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {
     data: {user},

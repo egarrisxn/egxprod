@@ -2,7 +2,7 @@
 import {CreateUserInput, createUserSchema} from '@/lib/user-schema'
 import {zodResolver} from '@hookform/resolvers/zod'
 import {SubmitHandler, useForm} from 'react-hook-form'
-import {signUpWithEmailAndPassword} from '../_actions'
+import {signUpUser} from '@/app/_actions'
 import toast from 'react-hot-toast'
 import {useRouter} from 'next/navigation'
 import {useTransition} from 'react'
@@ -24,7 +24,7 @@ export function RegisterForm() {
 
   const onSubmitHandler: SubmitHandler<CreateUserInput> = (values) => {
     startTransition(async () => {
-      const result = await signUpWithEmailAndPassword({
+      const result = await signUpUser({
         data: values,
         emailRedirectTo: `${location.origin}/auth/callback`,
       })

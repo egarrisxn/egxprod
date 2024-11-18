@@ -4,14 +4,7 @@ import {addEvent, updateEvent} from '@/app/_actions'
 import {Button} from '../ui/button'
 import {Input} from '../ui/input'
 import {Label} from '../ui/label'
-import type {Event} from '@/lib/interface'
-
-export interface EventFormProps {
-  event?: Event
-  selectedDate: Date
-  onEventSaved: () => void
-  onCancel: () => void
-}
+import type {EventFormProps} from '@/lib/types'
 
 export function EventForm({event, selectedDate, onEventSaved, onCancel}: EventFormProps) {
   const [title, setTitle] = useState(event?.title || '')

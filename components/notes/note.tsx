@@ -1,7 +1,7 @@
 import {editNote} from '@/app/_actions'
 import NoteData from './note-data'
 import DeleteNote from './delete-note'
-import type {Note} from '@/lib/interface'
+import type {Note} from '@/lib/types'
 
 export default async function Note({note}: {note: Note}) {
   return (

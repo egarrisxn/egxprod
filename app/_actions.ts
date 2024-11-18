@@ -1,18 +1,20 @@
 'use server'
-import {createSupabaseServerClient} from '@/lib/supabase/server'
+import {createClient} from '@/lib/supabase/server'
 import {CreateUserInput, LoginUserInput} from '@/lib/user-schema'
 import {redirect} from 'next/navigation'
 import {revalidatePath} from 'next/cache'
-import type {Todo, Note} from '@/lib/interface'
+import type {Todo, Note} from '@/lib/types'
 
-export async function signUpWithEmailAndPassword({
+//! AUTHENTICATION
+
+export async function signUpUser({
   data,
   emailRedirectTo,
 }: {
   data: CreateUserInput
   emailRedirectTo?: string
 }) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
   const result = await supabase.auth.signUp({
     email: data.email,
     password: data.password,
@@ -23,8 +25,8 @@ export async function signUpWithEmailAndPassword({
   return JSON.stringify(result)
 }
 
-export async function signInWithEmailAndPassword(data: LoginUserInput) {
-  const supabase = await createSupabaseServerClient()
+export async function signInUser(data: LoginUserInput) {
+  const supabase = await createClient()
   const result = await supabase.auth.signInWithPassword({
     email: data.email,
     password: data.password,
@@ -33,7 +35,7 @@ export async function signInWithEmailAndPassword(data: LoginUserInput) {
 }
 
 export async function signOutUser() {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
   await supabase.auth.signOut()
   return redirect('/')
 }
@@ -41,7 +43,7 @@ export async function signOutUser() {
 //! TODO LIST
 
 export async function fetchTodos(): Promise<Todo[]> {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {
     data: {user},
@@ -57,7 +59,7 @@ export async function fetchTodos(): Promise<Todo[]> {
 }
 
 export async function addTodo(formData: FormData) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {
     data: {user},
@@ -83,7 +85,7 @@ export async function addTodo(formData: FormData) {
 }
 
 export async function editTodo(todo: Todo) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {
     data: {user},
@@ -102,7 +104,7 @@ export async function editTodo(todo: Todo) {
 }
 
 export async function deleteTodo(id: number) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {error} = await supabase.from('todos').delete().eq('id', id)
 
@@ -114,7 +116,7 @@ export async function deleteTodo(id: number) {
 }
 
 export async function deleteCompletedTodos() {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {error} = await supabase.from('todos').delete().eq('is_complete', true)
 
@@ -126,7 +128,7 @@ export async function deleteCompletedTodos() {
 }
 
 export async function deleteAllTodos() {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {
     data: {user},
@@ -142,7 +144,7 @@ export async function deleteAllTodos() {
 }
 
 export async function onCheckChange(todo: Todo) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {error} = await supabase
     .from('todos')
@@ -160,7 +162,7 @@ export async function onCheckChange(todo: Todo) {
 //! Notes
 
 export async function addNote(formData: FormData) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {
     data: {user},
@@ -185,7 +187,7 @@ export async function addNote(formData: FormData) {
 }
 
 export async function editNote(note: Note) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {
     data: {user},
@@ -204,7 +206,7 @@ export async function editNote(note: Note) {
 }
 
 export async function deleteNote(id: number) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {error} = await supabase.from('notes').delete().eq('id', id)
 
@@ -218,7 +220,7 @@ export async function deleteNote(id: number) {
 //! Calendar Events
 
 export async function getEvents(date: string) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {
     data: {user},
@@ -240,7 +242,7 @@ export async function getEvents(date: string) {
 }
 
 export async function addEvent(title: string, description: string, time: string, date: string) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {
     data: {user},
@@ -260,7 +262,7 @@ export async function addEvent(title: string, description: string, time: string,
 }
 
 export async function updateEvent(id: number, title: string, description: string, time: string) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {
     data: {user},
@@ -282,7 +284,7 @@ export async function updateEvent(id: number, title: string, description: string
 }
 
 export async function deleteEvent(id: number) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {
     data: {user},

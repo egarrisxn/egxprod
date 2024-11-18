@@ -1,9 +1,9 @@
-import {createSupabaseServerClient} from '@/lib/supabase/server'
+import {createClient} from '@/lib/supabase/server'
 import Note from './note'
 import AddNote from './add-note'
 
 export default async function NoteList() {
-  const supabase = await createSupabaseServerClient()
+  const supabase = await createClient()
 
   const {data: notes, error} = await supabase.from('notes').select('*')
 

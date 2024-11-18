@@ -1,11 +1,11 @@
 'use client'
 import {useCallback, useEffect, useState} from 'react'
 import {useRouter} from 'next/navigation'
-import {createSupabaseBrowserClient} from '@/lib/supabase/client'
+import {createClient} from '@/lib/supabase/client'
 import UserAvatar from './avatar'
 import toast from 'react-hot-toast'
-import {Input} from './ui/input'
-import {Label} from './ui/label'
+import {Input} from '../ui/input'
+import {Label} from '../ui/label'
 import {type User} from '@supabase/supabase-js'
 
 export default function AccountForm({user}: {user: User | null}) {
@@ -15,7 +15,7 @@ export default function AccountForm({user}: {user: User | null}) {
   const [username, setUsername] = useState<string | null>(null)
   const [website, setWebsite] = useState<string | null>(null)
   const [avatar_url, setAvatarUrl] = useState<string | null>(null)
-  const supabase = createSupabaseBrowserClient()
+  const supabase = createClient()
 
   const getProfile = useCallback(async () => {
     try {
@@ -127,15 +127,6 @@ export default function AccountForm({user}: {user: User | null}) {
         >
           {loading ? 'Loading ...' : 'Update'}
         </button>
-
-        {/* <form action='/auth/signout' method='post'>
-          <button
-            className='inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border border-input bg-background px-4 py-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'
-            type='submit'
-          >
-            Sign out
-          </button>
-        </form> */}
       </div>
     </form>
   )

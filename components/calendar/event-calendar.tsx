@@ -9,7 +9,7 @@ import {Loader2, Plus} from 'lucide-react'
 import {format} from 'date-fns'
 import {EventForm} from './event-form'
 import {EventList} from './event-list'
-import type {Event} from '@/lib/interface'
+import type {Event} from '@/lib/types'
 
 export default function EventCalendar() {
   const [date, setDate] = useState<Date>(new Date())

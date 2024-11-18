@@ -9,15 +9,7 @@ import {Loader2, Plus} from 'lucide-react'
 import {format} from 'date-fns'
 import {EventForm} from './event-form'
 import {EventList} from './event-list'
-
-export interface Event {
-  id: number
-  user_id: string
-  title: string
-  description: string
-  time: string
-  date: string
-}
+import type {Event} from '@/lib/types'
 
 export default function CalendarView() {
   const [date, setDate] = useState<Date>(new Date())

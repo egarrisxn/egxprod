@@ -1,7 +1,7 @@
 'use client'
 import {onCheckChange} from '@/app/_actions'
 import {Checkbox} from '../ui/checkbox'
-import type {Todo} from '@/lib/interface'
+import type {Todo} from '@/lib/types'
 
 export default function TodoCheckbox({todo}: {todo: Todo}) {
   return (

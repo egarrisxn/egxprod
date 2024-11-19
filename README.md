@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub repo size](https://img.shields.io/github/repo-size/egarrisxn/egxprod) ![GitHub last commit](https://img.shields.io/github/last-commit/egarrisxn/egxprod)
 
+![2](https://github.com/user-attachments/assets/2744e1c5-f1b5-4ebc-a262-05c708a49d32)
+
 ## Table of Contents
 
 - [Overview](#overview)

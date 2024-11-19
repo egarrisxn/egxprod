@@ -67,7 +67,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           enableSystem
           disableTransitionOnChange
         >
-          <main className='grid min-h-[100dvh] grid-rows-[auto_1fr_auto]'>
+          <main className='grid min-h-[100dvh] grid-rows-[auto_1fr_auto] font-sans'>
             <Header />
             {children}
             <Footer />

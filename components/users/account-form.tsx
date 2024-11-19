@@ -85,7 +85,7 @@ export default function AccountForm({user}: {user: User | null}) {
   }
 
   return (
-    <Card className='mx-auto w-full max-w-xl'>
+    <Card className='mx-auto w-full max-w-2xl sm:px-4'>
       <CardHeader>
         <CardTitle className='text-center text-2xl font-bold'>Edit Profile</CardTitle>
       </CardHeader>

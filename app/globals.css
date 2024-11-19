@@ -2,20 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -83,45 +69,4 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.avatarPlaceholder {
-  border: 1px solid #333333;
-  border-radius: 5px;
-  width: 35px;
-  height: 35px;
-  background-color: rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* .fluid-txt {
-  --minFontSize: 16px;
-  --maxFontSize: 124px;
-  --scaler: 10vw;
-  font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
-} */
-
-.fluid-txt {
-  --minFontSize: 16px;
-  --maxFontSize: 88px;
-  --scaler: 10vw;
-  font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
-}
-
-.shadow-txt {
-  text-shadow:
-    0 1px 0 #ccc,
-    0 2px 0 #c9c9c9,
-    0 3px 0 #bbb,
-    0 4px 0 #b9b9b9,
-    0 5px 0 #aaa,
-    0 6px 1px rgba(0, 0, 0, 0.1),
-    0 0 5px rgba(0, 0, 0, 0.1),
-    0 1px 3px rgba(0, 0, 0, 0.3),
-    0 3px 5px rgba(0, 0, 0, 0.2),
-    0 5px 10px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.2),
-    0 20px 20px rgba(0, 0, 0, 0.15);
 }

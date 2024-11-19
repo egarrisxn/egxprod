@@ -3,7 +3,7 @@ import {redirect} from 'next/navigation'
 import {Button} from '@/components/ui/button'
 import {Card, CardContent} from '@/components/ui/card'
 import {ArrowRight, Quote as QuoteIcon} from 'lucide-react'
-import PrivateHeader from '@/components/private-header'
+// import PrivateHeader from '@/components/private-header'
 import quotes from '@/lib/quotes.json'
 import Link from 'next/link'
 
@@ -22,11 +22,11 @@ export default async function ProfilePage() {
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
 
   return (
-    <section className='flex min-h-screen flex-col gap-16 pt-20'>
-      <div className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
+    <section className='flex min-h-screen flex-col gap-16 pt-24'>
+      {/* <div className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
         <div className='relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]' />
       </div>
-      <PrivateHeader />
+      <PrivateHeader /> */}
       <div className='mx-auto flex max-w-4xl flex-col items-center justify-center gap-8 rounded-lg border bg-card p-8 shadow-lg dark:border-foreground'>
         <div className='space-y-4 text-center'>
           <h1 className='text-center text-2xl font-semibold sm:text-5xl'>

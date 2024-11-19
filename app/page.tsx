@@ -1,7 +1,7 @@
-import Hero from '@/components/hero'
-import Features from '@/components/features'
-import Examples from '@/components/examples'
-import CTA from '@/components/call-to-action'
+import Hero from '@/components/landing/hero'
+import Features from '@/components/landing/features'
+import Examples from '@/components/landing/examples'
+import CTA from '@/components/landing/call-to-action'
 
 export default function HomePage() {
   return (

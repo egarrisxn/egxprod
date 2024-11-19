@@ -70,12 +70,12 @@ export default function UserAvatar({
           height={size}
           src={avatarUrl}
           alt='Avatar'
-          className='max-w-full overflow-hidden rounded-md object-cover'
+          className='max-w-40 overflow-hidden rounded-md object-cover'
           style={{height: size, width: size}}
         />
       ) : (
         <div
-          className='max-w-full overflow-hidden rounded-md border bg-[#ffffff33] object-cover'
+          className='max-w-40 overflow-hidden rounded-md border bg-[#ffffff33] object-cover'
           style={{height: size, width: size}}
         />
       )}

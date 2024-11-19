@@ -115,12 +115,22 @@ export function LoginForm() {
       </div>
 
       <div className='grid gap-2'>
-        <Button type='button' variant='outline' onClick={loginWithGoogle} className='w-full'>
+        <Button
+          type='button'
+          variant='outline'
+          onClick={loginWithGoogle}
+          className='w-full bg-white text-black dark:hover:bg-slate-300 dark:hover:text-black'
+        >
           <Image src='/images/google.svg' alt='Google' width={20} height={20} className='mr-2' />
           Google
         </Button>
 
-        <Button type='button' variant='outline' onClick={loginWithGitHub} className='w-full'>
+        <Button
+          type='button'
+          variant='outline'
+          onClick={loginWithGitHub}
+          className='w-full bg-white text-black dark:hover:bg-slate-300 dark:hover:text-black'
+        >
           <Image src='/images/github.svg' alt='GitHub' width={20} height={20} className='mr-2' />
           GitHub
         </Button>

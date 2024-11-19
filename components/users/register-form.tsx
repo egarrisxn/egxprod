@@ -1,11 +1,14 @@
 'use client'
-import {CreateUserInput, createUserSchema} from '@/lib/user-schema'
+import {useTransition} from 'react'
+import {useRouter} from 'next/navigation'
 import {zodResolver} from '@hookform/resolvers/zod'
 import {SubmitHandler, useForm} from 'react-hook-form'
+import {CreateUserInput, createUserSchema} from '@/lib/user-schema'
 import {signUpUser} from '@/app/_actions'
+import {Input} from '@/components/ui/input'
+import {Label} from '@/components/ui/label'
+import {Button} from '@/components/ui/button'
 import toast from 'react-hot-toast'
-import {useRouter} from 'next/navigation'
-import {useTransition} from 'react'
 
 export function RegisterForm() {
   const [isPending, startTransition] = useTransition()
@@ -41,66 +44,61 @@ export function RegisterForm() {
     })
   }
 
-  const input_style =
-    'form-control block w-full px-4 py-5 text-sm font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
-
   return (
-    <form onSubmit={handleSubmit(onSubmitHandler)}>
-      <div className='mb-6'>
-        <input {...register('name')} placeholder='Name' className={`${input_style}`} />
+    <form onSubmit={handleSubmit(onSubmitHandler)} className='space-y-4'>
+      <div className='space-y-2'>
+        <Label htmlFor='name'>Name</Label>
+        <Input {...register('name')} placeholder='Name' className='w-full' />
         {errors['name'] && (
-          <span className='block pt-1 text-xs text-red-500'>
+          <span className='block pt-1 text-xs text-destructive'>
             {errors['name']?.message as string}
           </span>
         )}
       </div>
-      <div className='mb-6'>
-        <input
-          type='email'
-          {...register('email')}
-          placeholder='Email address'
-          className={`${input_style}`}
-        />
+      <div className='space-y-2'>
+        <Label htmlFor='email'>Email</Label>
+        <Input type='email' {...register('email')} placeholder='Email address' className='w-full' />
         {errors['email'] && (
-          <span className='block pt-1 text-xs text-red-500'>
+          <span className='block pt-1 text-xs text-destructive'>
             {errors['email']?.message as string}
           </span>
         )}
       </div>
-      <div className='mb-6'>
-        <input
+      <div className='space-y-2'>
+        <Label htmlFor='password'>Password</Label>
+        <Input
           type='password'
           {...register('password')}
           placeholder='Password'
-          className={`${input_style}`}
+          className='w-full'
         />
         {errors['password'] && (
-          <span className='block pt-1 text-xs text-red-500'>
+          <span className='block pt-1 text-xs text-destructive'>
             {errors['password']?.message as string}
           </span>
         )}
       </div>
-      <div className='mb-6'>
-        <input
+      <div className='space-y-2'>
+        <Label htmlFor='passwordConfirm'>Confirm Password</Label>
+        <Input
           type='password'
           {...register('passwordConfirm')}
           placeholder='Confirm Password'
-          className={`${input_style}`}
+          className='w-full'
         />
         {errors['passwordConfirm'] && (
-          <span className='block pt-1 text-xs text-red-500'>
+          <span className='block pt-1 text-xs text-destructive'>
             {errors['passwordConfirm']?.message as string}
           </span>
         )}
       </div>
-      <button
+      <Button
         type='submit'
-        style={{backgroundColor: `${isPending ? '#ccc' : '#3446eb'}`}}
-        className='inline-block w-full rounded bg-blue-600 px-7 py-4 text-sm font-medium uppercase leading-snug text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg'
+        className='w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600'
         disabled={isPending}
       >
         {isPending ? 'loading...' : 'Sign Up'}
-      </button>
+      </Button>
     </form>
   )
 }

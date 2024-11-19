@@ -18,7 +18,7 @@ export default function ClearActions() {
         onClick={async () => {
           await deleteAllTodos()
         }}
-        className='ml-auto'
+        className='ml-auto bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600'
         size='sm'
       >
         Clear All

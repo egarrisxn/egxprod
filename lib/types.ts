@@ -40,3 +40,8 @@ export interface EventListProps {
   onEditEvent: (event: Event) => void
   onDeleteEvent: (event: Event) => void
 }
+
+export interface Quote {
+  content: string
+  author: string
+}

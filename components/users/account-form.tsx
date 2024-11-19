@@ -3,10 +3,13 @@ import {useCallback, useEffect, useState} from 'react'
 import {useRouter} from 'next/navigation'
 import {createClient} from '@/lib/supabase/client'
 import UserAvatar from './avatar'
-import toast from 'react-hot-toast'
+import {Button} from '../ui/button'
 import {Input} from '../ui/input'
 import {Label} from '../ui/label'
+import {Card, CardContent, CardHeader, CardTitle} from '../ui/card'
+import {Mail, User as UserIcon, Globe, AtSign} from 'lucide-react'
 import {type User} from '@supabase/supabase-js'
+import toast from 'react-hot-toast'
 
 export default function AccountForm({user}: {user: User | null}) {
   const router = useRouter()
@@ -82,52 +85,100 @@ export default function AccountForm({user}: {user: User | null}) {
   }
 
   return (
-    <form className='mx-auto flex min-w-64 flex-col items-center justify-center gap-4'>
-      <UserAvatar
-        uid={user?.id ?? null}
-        url={avatar_url}
-        size={150}
-        onUpload={(url) => {
-          setAvatarUrl(url)
-          updateProfile({fullname, username, website, avatar_url: url})
-        }}
-      />
-      <div className='mt-8 flex flex-col gap-2 [&>input]:mb-3'>
-        <Label htmlFor='email'>Email</Label>
-        <Input id='email' type='text' value={user?.email} disabled />
+    <Card className='mx-auto w-full max-w-xl'>
+      <CardHeader>
+        <CardTitle className='text-center text-2xl font-bold'>Edit Profile</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <form className='space-y-6'>
+          <div className='flex justify-center'>
+            <UserAvatar
+              uid={user?.id ?? null}
+              url={avatar_url}
+              size={150}
+              onUpload={(url) => {
+                setAvatarUrl(url)
+                updateProfile({fullname, username, website, avatar_url: url})
+              }}
+            />
+          </div>
 
-        <Label htmlFor='fullName'>Full Name</Label>
-        <Input
-          id='fullName'
-          type='text'
-          value={fullname || ''}
-          onChange={(e) => setFullname(e.target.value)}
-        />
+          <div className='space-y-4'>
+            <div className='space-y-2'>
+              <Label htmlFor='email' className='text-sm font-medium'>
+                Email
+              </Label>
+              <div className='relative'>
+                <Mail className='absolute left-3 top-3 h-4 w-4 text-muted-foreground' />
+                <Input id='email' type='text' value={user?.email} disabled className='pl-10' />{' '}
+              </div>
+            </div>
 
-        <Label htmlFor='username'>Username</Label>
-        <Input
-          id='username'
-          type='text'
-          value={username || ''}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+            <div className='space-y-2'>
+              <Label htmlFor='fullName' className='text-sm font-medium'>
+                Full Name
+              </Label>
+              <div className='relative'>
+                <UserIcon className='absolute left-3 top-3 h-4 w-4 text-muted-foreground' />
+                <Input
+                  id='fullName'
+                  type='text'
+                  value={fullname || ''}
+                  onChange={(e) => setFullname(e.target.value)}
+                  className='pl-10'
+                />{' '}
+              </div>
+            </div>
 
-        <Label htmlFor='website'>Website</Label>
-        <Input
-          id='website'
-          type='url'
-          value={website || ''}
-          onChange={(e) => setWebsite(e.target.value)}
-        />
+            <div className='space-y-2'>
+              <Label htmlFor='username' className='text-sm font-medium'>
+                Username
+              </Label>
+              <div className='relative'>
+                <AtSign className='absolute left-3 top-3 h-4 w-4 text-muted-foreground' />
+                <Input
+                  id='username'
+                  type='text'
+                  value={username || ''}
+                  onChange={(e) => setUsername(e.target.value)}
+                  className='pl-10'
+                />{' '}
+              </div>
+            </div>
 
-        <button
-          className='inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border border-input bg-background px-4 py-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'
-          onClick={() => updateProfile({fullname, username, website, avatar_url})}
-          disabled={loading}
-        >
-          {loading ? 'Loading ...' : 'Update'}
-        </button>
-      </div>
-    </form>
+            <div className='space-y-2'>
+              <Label htmlFor='website' className='text-sm font-medium'>
+                Website
+              </Label>
+              <div className='relative'>
+                <Globe className='absolute left-3 top-3 h-4 w-4 text-muted-foreground' />
+                <Input
+                  id='website'
+                  type='url'
+                  value={website || ''}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  className='pl-10'
+                />{' '}
+              </div>
+            </div>
+
+            <Button
+              className='w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600'
+              onClick={() => updateProfile({fullname, username, website, avatar_url})}
+              disabled={loading}
+            >
+              {loading ? (
+                <div className='flex items-center gap-2'>
+                  <div className='h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent' />
+                  Updating...
+                </div>
+              ) : (
+                'Update Profile'
+              )}
+            </Button>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
   )
 }

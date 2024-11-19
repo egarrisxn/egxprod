@@ -69,7 +69,7 @@ export default function CalendarView() {
 
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
-            <Button className='w-full'>
+            <Button className='w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600'>
               <Plus className='mr-2 h-4 w-4' />
               Add Event
             </Button>

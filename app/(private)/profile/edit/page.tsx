@@ -15,18 +15,16 @@ export default async function EditProfilePage() {
   }
 
   return (
-    <div className='flex flex-col gap-8'>
-      <section className='w-full'>
-        <PrivateHeader />
-      </section>
-      <div className='mx-auto mb-8 flex w-full max-w-4xl items-center justify-center rounded border-2 bg-card py-8 shadow-lg'>
-        <div>
-          <p className='mb-3 text-center text-5xl font-semibold'>Edit Your Profile</p>
-          <div className='mt-8'>
-            <AccountForm user={user} />
-          </div>
+    <section className='flex min-h-screen flex-col gap-16 pt-20'>
+      <div className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
+        <div className='relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]' />
+      </div>
+      <PrivateHeader />
+      <div className='mx-auto mb-8 flex flex-col items-center justify-center py-8 lg:mb-16'>
+        <div className='rounded-lg border bg-background shadow-lg dark:dark:border-foreground'>
+          <AccountForm user={user} />
         </div>
       </div>
-    </div>
+    </section>
   )
 }

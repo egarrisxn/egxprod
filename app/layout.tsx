@@ -23,7 +23,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: 'egxprod',
+  title: '.prod',
   description: 'The All-In-One Productivity App!',
   referrer: 'origin-when-cross-origin',
   robots: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'egxprod.vercel.app',
-    title: 'egxprod',
+    title: '.prod',
     url: 'https://egxprod.vercel.app',
     locale: 'en_US',
     images: [
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         url: `https://egxprod.vercel.app/opengraph-image.png`,
         width: 1200,
         height: 630,
-        alt: 'egxprod-og-image',
+        alt: '.prod-og-image',
       },
     ],
   },

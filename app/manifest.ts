@@ -2,8 +2,8 @@ import type {MetadataRoute} from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'egxprod',
-    short_name: 'prod',
+    name: '.prod',
+    short_name: '.prod',
     description: 'The All-In-One Productivity App!',
     display: 'standalone',
     background_color: '#eaeaea',

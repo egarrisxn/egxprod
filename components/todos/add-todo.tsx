@@ -1,11 +1,11 @@
 'use client'
 import {useRef} from 'react'
-import {addTodo} from '@/app/_actions'
+import {addTodo} from '@/app/actions/todo'
 import {Button} from '../ui/button'
 import {Input} from '../ui/input'
 import PlusIcon from '../icons/plus'
 
-export default function AddTodo() {
+export function AddTodo() {
   const ref = useRef<HTMLFormElement>(null)
 
   return (

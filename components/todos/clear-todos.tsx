@@ -1,8 +1,8 @@
 'use client'
-import {deleteCompletedTodos, deleteAllTodos} from '@/app/_actions'
+import {deleteCompletedTodos, deleteAllTodos} from '@/app/actions/todo'
 import {Button} from '../ui/button'
 
-export default function ClearActions() {
+export function ClearTodos() {
   return (
     <div className='flex items-center gap-2 border-t pt-2'>
       <Button

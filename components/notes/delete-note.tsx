@@ -1,8 +1,8 @@
 'use client'
-import {deleteNote} from '@/app/_actions'
+import {deleteNote} from '@/app/actions/note'
 import {Button} from '../ui/button'
 
-export default function DeleteNote({id}: {id: number}) {
+export function DeleteNote({id}: {id: number}) {
   return (
     <Button
       variant='ghost'

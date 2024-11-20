@@ -1,11 +1,11 @@
 'use client'
 import {useEffect, useState} from 'react'
-import {editNote} from '@/app/_actions'
+import {editNote} from '@/app/actions/note'
 import {Input} from '../ui/input'
 
 import type {Note} from '@/lib/types'
 
-export default function NoteData({note}: {note: Note}) {
+export function NoteInput({note}: {note: Note}) {
   const [description, setDescription] = useState(note.thought)
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null)
 

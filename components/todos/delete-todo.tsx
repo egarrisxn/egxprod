@@ -1,8 +1,8 @@
 'use client'
-import {deleteTodo} from '@/app/_actions'
+import {deleteTodo} from '@/app/actions/todo'
 import {Button} from '../ui/button'
 
-export default function DeleteTodo({id}: {id: number}) {
+export function DeleteTodo({id}: {id: number}) {
   return (
     <Button
       variant='ghost'

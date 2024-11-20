@@ -1,11 +1,11 @@
 'use client'
 import {useRef} from 'react'
-import {addNote} from '@/app/_actions'
+import {addNote} from '@/app/actions/note'
 import {Button} from '../ui/button'
 import {Input} from '../ui/input'
 import PlusIcon from '../icons/plus'
 
-export default function AddNote() {
+export function AddNote() {
   const ref = useRef<HTMLFormElement>(null)
 
   return (

@@ -1,6 +1,6 @@
 'use client'
 import {useState} from 'react'
-import {addEvent, updateEvent} from '@/app/_actions'
+import {addEvent, updateEvent} from '@/app/actions/event'
 import {Button} from '../ui/button'
 import {Input} from '../ui/input'
 import {Label} from '../ui/label'
@@ -18,10 +18,8 @@ export function EventForm({event, selectedDate, onEventSaved, onCancel}: EventFo
       setIsLoading(true)
       try {
         if (event) {
-          // Update existing event
           await updateEvent(event.id, title, description, time)
         } else {
-          // Add new event
           await addEvent(title, description, time, selectedDate.toISOString().split('T')[0])
         }
         onEventSaved()

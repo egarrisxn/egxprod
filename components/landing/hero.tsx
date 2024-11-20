@@ -1,7 +1,7 @@
 import {Button} from '@/components/ui/button'
 import Link from 'next/link'
 
-export default function Hero() {
+export function Hero() {
   return (
     <section className='relative isolate pt-14 dark:bg-gray-900 xl:pt-24'>
       <div className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>

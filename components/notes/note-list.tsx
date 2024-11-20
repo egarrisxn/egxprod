@@ -1,15 +1,9 @@
-import {createClient} from '@/lib/supabase/server'
-import Note from './note'
-import AddNote from './add-note'
+import {fetchNotes} from '@/app/actions/note'
+import {Note} from './note'
+import {AddNote} from './add-note'
 
-export default async function NoteList() {
-  const supabase = await createClient()
-
-  const {data: notes, error} = await supabase.from('notes').select('*')
-
-  if (error) {
-    throw new Error(error.message)
-  }
+export async function NoteList() {
+  const notes = await fetchNotes()
 
   return (
     <div className='flex-1 overflow-auto'>
@@ -18,7 +12,6 @@ export default async function NoteList() {
           notes.map((note) => {
             return <Note key={note.id} note={note} />
           })}
-
         <AddNote />
       </div>
     </div>

@@ -1,7 +1,7 @@
 import {Button} from '@/components/ui/button'
 import Link from 'next/link'
 
-export default function CTA() {
+export function CallToAction() {
   return (
     <section className='h-96 w-full bg-slate-100 dark:bg-gray-900'>
       <div className='mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-6 py-24 sm:gap-4 sm:py-40 lg:px-8'>

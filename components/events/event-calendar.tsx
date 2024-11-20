@@ -1,17 +1,17 @@
 'use client'
 import {useState, useEffect, useCallback} from 'react'
-import {getEvents, deleteEvent} from '@/app/_actions'
-import {Calendar} from '../ui/calendar'
-import {Button} from '../ui/button'
+import {getEvents, deleteEvent} from '@/app/actions/event'
 import {Card, CardContent, CardHeader, CardTitle} from '../ui/card'
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from '../ui/dialog'
-import {Loader2, Plus} from 'lucide-react'
+import {Calendar} from '../ui/calendar'
+import {Button} from '../ui/button'
 import {format} from 'date-fns'
+import {Loader2, Plus} from 'lucide-react'
 import {EventForm} from './event-form'
 import {EventList} from './event-list'
 import type {Event} from '@/lib/types'
 
-export default function EventCalendar() {
+export function EventCalendar() {
   const [date, setDate] = useState<Date>(new Date())
   const [events, setEvents] = useState<Event[]>([])
   const [isLoading, setIsLoading] = useState(false)
@@ -64,13 +64,12 @@ export default function EventCalendar() {
             mode='single'
             selected={date}
             onSelect={(newDate) => newDate && setDate(newDate)}
-            className='rounded-md border'
           />
         </Card>
 
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
-            <Button className='w-full'>
+            <Button className='w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600'>
               <Plus className='mr-2 h-4 w-4' />
               Add Event
             </Button>

@@ -1,7 +1,7 @@
 'use client'
 import {Button} from '../ui/button'
-import {Edit, Trash2} from 'lucide-react'
 import {format, parse} from 'date-fns'
+import {Edit, Trash2} from 'lucide-react'
 import type {EventItemProps} from '@/lib/types'
 
 export function EventItem({event, onEdit, onDelete}: EventItemProps) {

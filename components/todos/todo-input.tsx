@@ -1,10 +1,10 @@
 'use client'
 import {useEffect, useState} from 'react'
-import {editTodo} from '@/app/_actions'
+import {editTodo} from '@/app/actions/todo'
 import {Input} from '../ui/input'
 import type {Todo} from '@/lib/types'
 
-export default function TodoData({todo}: {todo: Todo}) {
+export function TodoInput({todo}: {todo: Todo}) {
   const [description, setDescription] = useState(todo.task)
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null)
 

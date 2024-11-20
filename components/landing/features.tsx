@@ -1,24 +1,6 @@
-import {CalendarDays, CheckSquare, FileText} from 'lucide-react'
+import {features} from '@/lib/data'
 
-const features = [
-  {
-    name: 'Smart Calendar',
-    description: 'Intelligent scheduling with customizable views and event management.',
-    icon: CalendarDays,
-  },
-  {
-    name: 'Task Management',
-    description: 'Organize your tasks with priority levels, due dates, and progress tracking.',
-    icon: CheckSquare,
-  },
-  {
-    name: 'Notes & Documents',
-    description: 'Create, edit, and organize your notes with rich text formatting.',
-    icon: FileText,
-  },
-]
-
-export default function Features() {
+export function Features() {
   return (
     <section id='features' className='pt-14 xl:pt-24'>
       <div className='mx-auto max-w-7xl px-6 py-24 sm:py-40 lg:px-8'>

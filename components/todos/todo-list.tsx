@@ -1,9 +1,9 @@
-import {fetchTodos} from '@/app/_actions'
-import Todo from './todo'
-import AddTodo from './add-todo'
-import ClearActions from './clear-actions'
+import {fetchTodos} from '@/app/actions/todo'
+import {Todo} from './todo'
+import {AddTodo} from './add-todo'
+import {ClearTodos} from './clear-todos'
 
-export default async function TodoList() {
+export async function TodoList() {
   const todos = await fetchTodos()
 
   return (
@@ -19,7 +19,7 @@ export default async function TodoList() {
             .map((todo) => <Todo key={todo.id} todo={todo} />)}
         <AddTodo />
       </div>
-      <ClearActions />
+      <ClearTodos />
     </div>
   )
 }

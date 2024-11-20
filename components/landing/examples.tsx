@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function Examples() {
+export function Examples() {
   return (
     <section className='relative isolate pt-14 xl:pt-24'>
       <div className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>

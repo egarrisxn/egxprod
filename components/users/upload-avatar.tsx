@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react'
 import {createClient} from '@/lib/supabase/client'
 import Image from 'next/image'
 
-export default function UserAvatar({
+export function UploadAvatar({
   uid,
   url,
   size,
@@ -70,22 +70,17 @@ export default function UserAvatar({
           height={size}
           src={avatarUrl}
           alt='Avatar'
-          className='max-w-40 overflow-hidden rounded-md object-cover'
-          style={{height: size, width: size}}
+          className='mx-auto max-w-40 rounded-full border-2 border-foreground object-cover'
         />
       ) : (
-        <div
-          className='max-w-40 overflow-hidden rounded-md border bg-[#ffffff33] object-cover'
-          style={{height: size, width: size}}
-        />
+        <div className='size-40 max-w-40 rounded-full border bg-secondary object-cover' />
       )}
-      <div style={{width: size}}>
-        <label htmlFor='single'>{uploading ? 'Uploading ...' : 'Upload'}</label>
+      <div className='mx-auto flex flex-col text-center'>
+        <label htmlFor='single' className='font-medium hover:cursor-pointer'>
+          {uploading ? 'Uploading ...' : 'Upload'}
+        </label>
         <input
-          style={{
-            visibility: 'hidden',
-            position: 'absolute',
-          }}
+          className='hidden'
           type='file'
           id='single'
           accept='image/*'

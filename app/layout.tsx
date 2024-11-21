@@ -22,12 +22,21 @@ const geistMono = localFont({
 //   : 'http://localhost:3000'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://egxprod.vercel.app'),
+  // metadataBase: new URL('https://egxprod.vercel.app'),
   title: '.prod',
   description: 'The All-In-One Productivity App!',
   referrer: 'origin-when-cross-origin',
-
   creator: 'Ethan Garrison (https://github.com/egarrisxn)',
+  keywords: [
+    'Next.js',
+    'React',
+    'TypeScript',
+    'Supabase',
+    'PostgreSQL',
+    'TailwindCSS',
+    'shadcn-ui',
+    'productivity',
+  ],
   robots: {
     index: true,
     follow: true,
@@ -41,37 +50,22 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    siteName: 'egxprod.vercel.app',
-    title: '.prod',
     url: 'https://egxprod.vercel.app',
+    title: '.prod',
+    description: 'The All-In-One Productivity App!',
+    // images: 'https://egxprod.vercel.app/opengraph-image.png',
+    siteName: '.prod',
     locale: 'en_US',
-    images: [
-      {
-        url: `https://egxprod.vercel.app/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: '.prod 2024 opengraph image',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
-    creator: '@eg__xo',
-    site: '@eg__xo',
+    site: 'https://egxprod.vercel.app',
     title: '.prod',
     description: 'The All-In-One Productivity App!',
-    images: [
-      {
-        url: `https://egxprod.vercel.app/twitter-image.png`,
-        width: 1200,
-        height: 630,
-        alt: '.prod 2024 twitter image',
-      },
-    ],
+    // images: 'https://egxprod.vercel.app/twitter-image.png',
+    creator: '@eg__xo',
   },
-  icons: {
-    shortcut: 'https://egxprod.vercel.app/favicon.ico',
-  },
+  // icons: 'https://egxprod.vercel.app/favicon.ico',
 }
 
 export default function RootLayout({children}: {children: React.ReactNode}) {

@@ -5,13 +5,14 @@ export default function manifest(): MetadataRoute.Manifest {
     name: '.prod',
     short_name: '.prod',
     description: 'The All-In-One Productivity App!',
+    start_url: '/',
     display: 'standalone',
     background_color: '#eaeaea',
     theme_color: '#eaeaea',
     icons: [
       {
         src: '/favicon.ico',
-        sizes: 'any',
+        sizes: '48x48',
         type: 'image/x-icon',
       },
       {

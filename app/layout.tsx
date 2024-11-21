@@ -52,6 +52,12 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Your App Title',
+    description: 'A brief description of your app.',
+    images: 'https://egxprod.vercel.app/twitter-image.png',
+  },
   icons: {
     shortcut: 'https://egxprod.vercel.app/favicon.ico',
   },

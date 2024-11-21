@@ -48,18 +48,20 @@ export const metadata: Metadata = {
         url: `https://egxprod.vercel.app/opengraph-image.png`,
         width: 1200,
         height: 630,
+        alt: '.prod 2024 opengraph image',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Your App Title',
-    description: 'A brief description of your app.',
+    title: '.prod',
+    description: 'The All-In-One Productivity App!',
     images: [
       {
         url: `https://egxprod.vercel.app/twitter-image.png`,
         width: 1200,
         height: 630,
+        alt: '.prod 2024 twitter image',
       },
     ],
   },

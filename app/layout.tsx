@@ -17,15 +17,17 @@ const geistMono = localFont({
   weight: '100 900',
 })
 
-const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : 'http://localhost:3000'
+// const defaultUrl = process.env.VERCEL_URL
+//   ? `https://${process.env.VERCEL_URL}`
+//   : 'http://localhost:3000'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(defaultUrl),
+  metadataBase: new URL('https://egxprod.vercel.app'),
   title: '.prod',
   description: 'The All-In-One Productivity App!',
   referrer: 'origin-when-cross-origin',
+
+  creator: 'Ethan Garrison (https://github.com/egarrisxn)',
   robots: {
     index: true,
     follow: true,
@@ -54,6 +56,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    creator: '@eg__xo',
+    site: '@eg__xo',
     title: '.prod',
     description: 'The All-In-One Productivity App!',
     images: [

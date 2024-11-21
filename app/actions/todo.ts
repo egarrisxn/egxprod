@@ -5,7 +5,7 @@ import type {Todo} from '@/lib/types'
 
 //! TODO LIST
 
-export async function fetchTodos(): Promise<Todo[]> {
+export async function getTodos(): Promise<Todo[]> {
   const supabase = await createClient()
   const {
     data: {user},

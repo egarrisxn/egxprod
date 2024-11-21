@@ -5,7 +5,7 @@ import type {Note} from '@/lib/types'
 
 //! Notes
 
-export async function fetchNotes(): Promise<Note[]> {
+export async function getNotes(): Promise<Note[]> {
   const supabase = await createClient()
   const {
     data: {user},

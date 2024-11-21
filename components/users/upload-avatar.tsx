@@ -64,17 +64,18 @@ export function UploadAvatar({
 
   return (
     <div>
-      {avatarUrl ? (
-        <Image
-          width={size}
-          height={size}
-          src={avatarUrl}
-          alt='Avatar'
-          className='mx-auto max-w-40 rounded-full border-2 border-foreground object-cover'
-        />
-      ) : (
-        <div className='size-40 max-w-40 rounded-full border bg-secondary object-cover' />
-      )}
+      <div
+        style={{width: size, height: size}}
+        className='mx-auto max-w-40 rounded-full border-2 border-foreground bg-secondary object-cover'
+      >
+        {avatarUrl ? (
+          <Image width={size} height={size} src={avatarUrl} alt='Avatar' className='rounded-full' />
+        ) : (
+          // Placeholder while loading
+          <div className='h-full w-full animate-pulse rounded-full bg-gray-300' />
+        )}
+      </div>
+
       <div className='mx-auto flex flex-col text-center'>
         <label htmlFor='single' className='font-medium hover:cursor-pointer'>
           {uploading ? 'Uploading ...' : 'Upload'}

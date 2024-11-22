@@ -17,12 +17,12 @@ const geistMono = localFont({
   weight: '100 900',
 })
 
-// const defaultUrl = process.env.VERCEL_URL
-//   ? `https://${process.env.VERCEL_URL}`
-//   : 'http://localhost:3000'
+const defaultUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : 'http://localhost:3000'
 
 export const metadata: Metadata = {
-  // metadataBase: new URL('https://egxprod.vercel.app'),
+  metadataBase: new URL(defaultUrl),
   title: '.prod',
   description: 'The All-In-One Productivity App!',
   referrer: 'origin-when-cross-origin',
@@ -53,7 +53,14 @@ export const metadata: Metadata = {
     url: 'https://egxprod.vercel.app',
     title: '.prod',
     description: 'The All-In-One Productivity App!',
-    // images: 'https://egxprod.vercel.app/opengraph-image.png',
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: '.prod 2024 opengraph image',
+      },
+    ],
     siteName: '.prod',
     locale: 'en_US',
   },
@@ -62,10 +69,19 @@ export const metadata: Metadata = {
     site: 'https://egxprod.vercel.app',
     title: '.prod',
     description: 'The All-In-One Productivity App!',
-    // images: 'https://egxprod.vercel.app/twitter-image.png',
     creator: '@eg__xo',
+    images: [
+      {
+        url: `/twitter-image.png`,
+        width: 1200,
+        height: 630,
+        alt: '.prod 2024 twitter image',
+      },
+    ],
   },
-  // icons: 'https://egxprod.vercel.app/favicon.ico',
+  icons: {
+    shortcut: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({children}: {children: React.ReactNode}) {

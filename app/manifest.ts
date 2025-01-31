@@ -2,8 +2,8 @@ import type {MetadataRoute} from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: '.prod',
-    short_name: '.prod',
+    name: 'xprod',
+    short_name: 'xprod',
     description: 'The All-In-One Productivity App!',
     start_url: '/',
     display: 'standalone',

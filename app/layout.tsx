@@ -23,7 +23,7 @@ const defaultUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: '.prod',
+  title: 'xprod',
   description: 'The All-In-One Productivity App!',
   referrer: 'origin-when-cross-origin',
   creator: 'Ethan Garrison (https://github.com/egarrisxn)',
@@ -50,24 +50,24 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://egxprod.vercel.app',
-    title: '.prod',
+    url: 'https://xprod.vercel.app',
+    title: 'xprod',
     description: 'The All-In-One Productivity App!',
     images: [
       {
         url: '/opengraph-image.png',
         width: 1200,
         height: 630,
-        alt: '.prod 2024 opengraph image',
+        alt: 'xprod 2024 opengraph image',
       },
     ],
-    siteName: '.prod',
+    siteName: 'xprod',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    site: 'https://egxprod.vercel.app',
-    title: '.prod',
+    site: 'https://xprod.vercel.app',
+    title: 'xprod',
     description: 'The All-In-One Productivity App!',
     creator: '@eg__xo',
     images: [
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
         url: `/twitter-image.png`,
         width: 1200,
         height: 630,
-        alt: '.prod 2024 twitter image',
+        alt: 'xprod 2024 twitter image',
       },
     ],
   },

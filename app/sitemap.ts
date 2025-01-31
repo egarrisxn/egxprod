@@ -3,7 +3,7 @@ import type {MetadataRoute} from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://egxprod.vercel.app',
+      url: 'https://xprod.vercel.app',
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1,

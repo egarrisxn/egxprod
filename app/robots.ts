@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: ['/'],
     },
-    sitemap: 'https://egxprod.vercel.app/sitemap.xml',
-    host: 'https://egxprod.vercel.app',
+    sitemap: 'https://xprod.vercel.app/sitemap.xml',
+    host: 'https://xprod.vercel.app',
   }
 }

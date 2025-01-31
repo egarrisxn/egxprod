@@ -53,13 +53,13 @@ To get a local copy up and running, follow these simple steps.
 1. Clone the repo:
 
    ```bash
-   git clone https://github.com/yourusername/egxprod.git
+   git clone https://github.com/yourusername/xprod.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd egxprod
+   cd xprod
    ```
 
 3. Install dependencies:

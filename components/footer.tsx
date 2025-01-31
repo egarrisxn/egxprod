@@ -8,7 +8,7 @@ export default function Footer() {
       <div className='mx-auto flex max-w-7xl flex-row items-center justify-between px-3 py-6 sm:px-4 md:py-8 lg:px-8'>
         <div className='flex flex-row items-center gap-2'>
           <a
-            href='https://github.com/egarrisxn/egxprod'
+            href='https://github.com/egarrisxn/xprod'
             className='text-muted-foreground hover:text-foreground'
           >
             <span className='sr-only'>GitHub</span>

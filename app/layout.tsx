@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title: 'xprod',
   description: 'The All-In-One Productivity App!',
   referrer: 'origin-when-cross-origin',
-  creator: 'Ethan Garrison (https://github.com/egarrisxn)',
+  creator: 'https://egxo.dev.',
   keywords: [
     'Next.js',
     'React',
@@ -39,20 +39,22 @@ export const metadata: Metadata = {
   ],
   robots: {
     index: true,
-    follow: true,
+    follow: false,
+    nocache: true,
     googleBot: {
       index: true,
-      follow: true,
+      follow: false,
+      noimageindex: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
   },
   openGraph: {
-    type: 'website',
-    url: 'https://xprod.vercel.app',
     title: 'xprod',
     description: 'The All-In-One Productivity App!',
+    url: 'https://xprod.vercel.app',
+    siteName: 'xprod',
     images: [
       {
         url: '/opengraph-image.png',
@@ -61,15 +63,15 @@ export const metadata: Metadata = {
         alt: 'xprod 2024 opengraph image',
       },
     ],
-    siteName: 'xprod',
+    type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    site: 'https://xprod.vercel.app',
     title: 'xprod',
     description: 'The All-In-One Productivity App!',
     creator: '@eg__xo',
+    site: '@eg__xo',
     images: [
       {
         url: `/twitter-image.png`,
@@ -80,7 +82,18 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    shortcut: '/favicon.ico',
+    icon: [
+      {url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon'},
+      {url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png'},
+      {url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png'},
+    ],
+    apple: [{url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png'}],
+    other: [
+      {
+        rel: 'apple-touch-icon-precomposed',
+        url: '/apple-touch-icon-precomposed.png',
+      },
+    ],
   },
 }
 

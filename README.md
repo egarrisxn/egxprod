@@ -1,6 +1,6 @@
-# egxprod
+# xprod
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub repo size](https://img.shields.io/github/repo-size/egarrisxn/egxprod) ![GitHub last commit](https://img.shields.io/github/last-commit/egarrisxn/egxprod)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub repo size](https://img.shields.io/github/repo-size/egarrisxn/xprod) ![GitHub last commit](https://img.shields.io/github/last-commit/egarrisxn/xprod)
 
 ![2](https://github.com/user-attachments/assets/2744e1c5-f1b5-4ebc-a262-05c708a49d32)
 
@@ -19,12 +19,12 @@
 
 ## Overview
 
-**eegxprod** is an all-in-one productivity application designed to streamline task and event management for individuals or teams. It combines modern web technologies for a fast, efficient, and user-friendly experience.
+**xprod** is an all-in-one productivity application designed to streamline task and event management for individuals or teams. It combines modern web technologies for a fast, efficient, and user-friendly experience.
 
 ## Technologies
 
-- **Framework**: [Next.js 15](https://nextjs.org/)
-- **Programming Language**: [TypeScript](https://www.typescriptlang.org/), [JavaScript (React 18)](https://reactjs.org/)
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Programming Language**: [TypeScript](https://www.typescriptlang.org/), [JavaScript (React)](https://reactjs.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **State Management**: [Radix UI](https://www.radix-ui.com/)
 - **Date Management**: [date-fns](https://date-fns.org/)

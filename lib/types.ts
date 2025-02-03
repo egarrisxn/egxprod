@@ -45,3 +45,21 @@ export interface Quote {
   content: string
   author: string
 }
+
+export interface TimerSession {
+  id: number
+  mode: 'work' | 'shortBreak' | 'longBreak'
+  duration: number
+  started_at: string
+  completed: boolean
+}
+
+export type TimerSessionProps = {
+  timerSession: TimerSession
+  onDelete: (sessionId: number) => void
+}
+
+export type TimerSessionListProps = {
+  timerSessions: TimerSession[]
+  onDeleteSession: (sessionId: number) => void
+}

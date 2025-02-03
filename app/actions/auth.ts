@@ -3,8 +3,6 @@ import {createClient} from '@/lib/supabase/server'
 import {CreateUserInput, LoginUserInput} from '@/lib/user-schema'
 import {redirect} from 'next/navigation'
 
-//! AUTHENTICATION
-
 export async function signUpUser({
   data,
   emailRedirectTo,
@@ -25,6 +23,7 @@ export async function signUpUser({
 
 export async function signInUser(data: LoginUserInput) {
   const supabase = await createClient()
+
   const result = await supabase.auth.signInWithPassword({
     email: data.email,
     password: data.password,
@@ -34,6 +33,20 @@ export async function signInUser(data: LoginUserInput) {
 
 export async function signOutUser() {
   const supabase = await createClient()
+
   await supabase.auth.signOut()
   return redirect('/')
+}
+
+export async function getUser() {
+  const supabase = await createClient()
+
+  const {
+    data: {user},
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    redirect('/login')
+  }
+  return user
 }

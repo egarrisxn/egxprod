@@ -1,5 +1,6 @@
 'use client'
 import {deleteTodo} from '@/app/actions/todo'
+import {Trash2} from 'lucide-react'
 import {Button} from '../ui/button'
 
 export function DeleteTodo({id}: {id: number}) {
@@ -7,12 +8,13 @@ export function DeleteTodo({id}: {id: number}) {
     <Button
       variant='ghost'
       size='icon'
-      className='h-4 w-4'
+      className='size-4'
       onClick={async () => {
         await deleteTodo(id)
       }}
     >
-      X
+      <Trash2 className='size-3' />
+      <span className='sr-only'>Delete To-Do Item</span>
     </Button>
   )
 }

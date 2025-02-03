@@ -2,6 +2,7 @@
 import {useEffect, useState} from 'react'
 import {editTodo} from '@/app/actions/todo'
 import {Input} from '../ui/input'
+
 import type {Todo} from '@/lib/types'
 
 export function TodoInput({todo}: {todo: Todo}) {

@@ -1,5 +1,6 @@
 'use client'
 import {deleteNote} from '@/app/actions/note'
+import {Trash2} from 'lucide-react'
 import {Button} from '../ui/button'
 
 export function DeleteNote({id}: {id: number}) {
@@ -7,12 +8,13 @@ export function DeleteNote({id}: {id: number}) {
     <Button
       variant='ghost'
       size='icon'
-      className='h-4 w-4'
+      className='size-4'
       onClick={async () => {
         await deleteNote(id)
       }}
     >
-      X
+      <Trash2 className='size-3' />
+      <span className='sr-only'>Delete Note</span>
     </Button>
   )
 }

@@ -1,15 +1,10 @@
-import {createClient} from '@/lib/supabase/server'
-import {signOutUser} from '@/app/actions/auth'
+import {getUser, signOutUser} from '@/app/actions/auth'
 import {Button} from './ui/button'
 import {HeaderDropdown} from '@/components/header-dropdown'
 import Link from 'next/link'
 
 export async function HeaderAuth() {
-  const supabase = await createClient()
-
-  const {
-    data: {user},
-  } = await supabase.auth.getUser()
+  const user = await getUser()
 
   return user ? (
     <div className='flex items-center sm:gap-4'>

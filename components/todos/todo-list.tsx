@@ -4,6 +4,7 @@ import {ClearTodos} from './clear-todos'
 import {TodoInput} from './todo-input'
 import {TodoCheckbox} from './todo-checkbox'
 import {DeleteTodo} from './delete-todo'
+
 import type {Todo} from '@/lib/types'
 
 async function Todo({todo}: {todo: Todo}) {

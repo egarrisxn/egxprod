@@ -1,14 +1,15 @@
 'use client'
 import {useState, useEffect, useCallback} from 'react'
+import {format} from 'date-fns'
+import {Loader2, Plus} from 'lucide-react'
 import {getEvents, deleteEvent} from '@/app/actions/event'
 import {Card, CardContent, CardHeader, CardTitle} from '../ui/card'
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from '../ui/dialog'
 import {Calendar} from '../ui/calendar'
 import {Button} from '../ui/button'
-import {format} from 'date-fns'
-import {Loader2, Plus} from 'lucide-react'
 import {EventForm} from './event-form'
 import {EventList} from './event-list'
+
 import type {Event} from '@/lib/types'
 
 export function EventCalendar() {
@@ -66,11 +67,10 @@ export function EventCalendar() {
             onSelect={(newDate) => newDate && setDate(newDate)}
           />
         </Card>
-
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
             <Button className='w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600'>
-              <Plus className='mr-2 h-4 w-4' />
+              <Plus className='mr-1 size-4' />
               Add Event
             </Button>
           </DialogTrigger>
@@ -98,7 +98,7 @@ export function EventCalendar() {
         <CardContent>
           {isLoading ? (
             <div className='flex justify-center py-8'>
-              <Loader2 className='h-6 w-6 animate-spin' />
+              <Loader2 className='size-6 animate-spin' />
             </div>
           ) : (
             <EventList

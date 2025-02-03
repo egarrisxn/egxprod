@@ -2,6 +2,7 @@ import {getNotes, editNote} from '@/app/actions/note'
 import {AddNote} from './add-note'
 import {NoteInput} from './note-input'
 import {DeleteNote} from './delete-note'
+
 import type {Note} from '@/lib/types'
 
 async function Note({note}: {note: Note}) {

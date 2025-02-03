@@ -1,5 +1,6 @@
 'use client'
 import {EventItem} from './event-item'
+
 import type {EventListProps} from '@/lib/types'
 
 export function EventList({events, onEditEvent, onDeleteEvent}: EventListProps) {

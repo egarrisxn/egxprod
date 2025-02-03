@@ -1,7 +1,8 @@
 'use client'
-import {Button} from '../ui/button'
 import {format, parse} from 'date-fns'
 import {Edit, Trash2} from 'lucide-react'
+import {Button} from '../ui/button'
+
 import type {EventItemProps} from '@/lib/types'
 
 export function EventItem({event, onEdit, onDelete}: EventItemProps) {
@@ -20,12 +21,12 @@ export function EventItem({event, onEdit, onDelete}: EventItemProps) {
         <div className='text-sm text-muted-foreground'>{event.description}</div>
       </div>
       <div className='flex space-x-2'>
-        <Button variant='ghost' size='icon' onClick={onEdit}>
-          <Edit className='h-4 w-4' />
+        <Button variant='ghost' size='icon' className='size-4' onClick={onEdit}>
+          <Edit className='size-3' />
           <span className='sr-only'>Edit event</span>
         </Button>
-        <Button variant='ghost' size='icon' onClick={onDelete}>
-          <Trash2 className='h-4 w-4' />
+        <Button variant='ghost' size='icon' className='size-4' onClick={onDelete}>
+          <Trash2 className='size-3' />
           <span className='sr-only'>Delete event</span>
         </Button>
       </div>

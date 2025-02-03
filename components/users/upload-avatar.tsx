@@ -12,6 +12,7 @@ export function UploadAvatar({
   uid: string | null
   url: string | null
   size: number
+  // eslint-disable-next-line no-unused-vars
   onUpload: (url: string) => void
 }) {
   const supabase = createClient()

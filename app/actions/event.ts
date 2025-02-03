@@ -1,10 +1,11 @@
 'use server'
 import {createClient} from '@/lib/supabase/server'
-import {getUser} from '../actions/auth'
 
 export async function getEvents(date: string) {
   const supabase = await createClient()
-  const user = await getUser()
+  const {
+    data: {user},
+  } = await supabase.auth.getUser()
 
   const {data, error} = await supabase
     .from('events')
@@ -22,7 +23,9 @@ export async function getEvents(date: string) {
 
 export async function addEvent(title: string, description: string, time: string, date: string) {
   const supabase = await createClient()
-  const user = await getUser()
+  const {
+    data: {user},
+  } = await supabase.auth.getUser()
 
   const {data, error} = await supabase
     .from('events')
@@ -38,7 +41,9 @@ export async function addEvent(title: string, description: string, time: string,
 
 export async function updateEvent(id: number, title: string, description: string, time: string) {
   const supabase = await createClient()
-  const user = await getUser()
+  const {
+    data: {user},
+  } = await supabase.auth.getUser()
 
   const {data, error} = await supabase
     .from('events')
@@ -57,7 +62,9 @@ export async function updateEvent(id: number, title: string, description: string
 
 export async function deleteEvent(id: number) {
   const supabase = await createClient()
-  const user = await getUser()
+  const {
+    data: {user},
+  } = await supabase.auth.getUser()
 
   const {error} = await supabase.from('events').delete().eq('id', id).eq('user_id', user?.id)
 

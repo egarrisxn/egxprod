@@ -1,13 +1,14 @@
 'use server'
 import {revalidatePath} from 'next/cache'
 import {createClient} from '@/lib/supabase/server'
-import {getUser} from '../actions/auth'
 
 import type {Note} from '@/lib/types'
 
 export async function getNotes(): Promise<Note[]> {
   const supabase = await createClient()
-  const user = await getUser()
+  const {
+    data: {user},
+  } = await supabase.auth.getUser()
 
   const {data, error} = await supabase.from('notes').select('*').eq('user_id', user?.id)
 
@@ -19,7 +20,9 @@ export async function getNotes(): Promise<Note[]> {
 
 export async function addNote(formData: FormData) {
   const supabase = await createClient()
-  const user = await getUser()
+  const {
+    data: {user},
+  } = await supabase.auth.getUser()
 
   const {error} = await supabase
     .from('notes')
@@ -40,7 +43,9 @@ export async function addNote(formData: FormData) {
 
 export async function editNote(note: Note) {
   const supabase = await createClient()
-  const user = await getUser()
+  const {
+    data: {user},
+  } = await supabase.auth.getUser()
 
   const {error} = await supabase
     .from('notes')

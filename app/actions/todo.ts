@@ -1,13 +1,14 @@
 'use server'
 import {revalidatePath} from 'next/cache'
 import {createClient} from '@/lib/supabase/server'
-import {getUser} from '../actions/auth'
 
 import type {Todo} from '@/lib/types'
 
 export async function getTodos(): Promise<Todo[]> {
   const supabase = await createClient()
-  const user = await getUser()
+  const {
+    data: {user},
+  } = await supabase.auth.getUser()
 
   const {data, error} = await supabase.from('todos').select('*').eq('user_id', user?.id)
 
@@ -19,7 +20,9 @@ export async function getTodos(): Promise<Todo[]> {
 
 export async function addTodo(formData: FormData) {
   const supabase = await createClient()
-  const user = await getUser()
+  const {
+    data: {user},
+  } = await supabase.auth.getUser()
 
   const {error} = await supabase
     .from('todos')
@@ -41,7 +44,9 @@ export async function addTodo(formData: FormData) {
 
 export async function editTodo(todo: Todo) {
   const supabase = await createClient()
-  const user = await getUser()
+  const {
+    data: {user},
+  } = await supabase.auth.getUser()
 
   const {error} = await supabase
     .from('todos')
@@ -79,7 +84,9 @@ export async function deleteCompletedTodos() {
 
 export async function deleteAllTodos() {
   const supabase = await createClient()
-  const user = await getUser()
+  const {
+    data: {user},
+  } = await supabase.auth.getUser()
 
   const {error} = await supabase.from('todos').delete().eq('user_id', user?.id)
 

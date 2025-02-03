@@ -1,12 +1,12 @@
 'use client'
 import {useCallback, useEffect, useState} from 'react'
 import {useRouter} from 'next/navigation'
+import {Mail, User as UserIcon, Globe, AtSign} from 'lucide-react'
 import {createClient} from '@/lib/supabase/client'
 import {Button} from '../ui/button'
 import {Input} from '../ui/input'
 import {Label} from '../ui/label'
 import {UploadAvatar} from './upload-avatar'
-import {Mail, User as UserIcon, Globe, AtSign} from 'lucide-react'
 import toast from 'react-hot-toast'
 import {type User} from '@supabase/supabase-js'
 

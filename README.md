@@ -1,8 +1,8 @@
 # xprod
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub repo size](https://img.shields.io/github/repo-size/egarrisxn/xprod) ![GitHub last commit](https://img.shields.io/github/last-commit/egarrisxn/xprod)
+![xprod](https://github.com/user-attachments/assets/6408ffd3-433f-4b90-aad2-d1d847222f13)
 
-![2](https://github.com/user-attachments/assets/2744e1c5-f1b5-4ebc-a262-05c708a49d32)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub repo size](https://img.shields.io/github/repo-size/egarrisxn/xprod) ![GitHub last commit](https://img.shields.io/github/last-commit/egarrisxn/xprod)
 
 ## Table of Contents
 

@@ -98,6 +98,22 @@ To get a local copy up and running, follow these simple steps.
   pnpm format
   ```
 
+## **Linting**
+
+`pnpm run next-lint`: a backup of the original next.js linting command
+
+`pnpm run lint`: to manually use our (custom) linting command, it will scan our code and help us find problems in it (gets used by the build command before building)
+
+`pnpm run lint-nocache`: same as **lint** command without cache, takes longer but can be useful when testing changes
+
+`pnpm run lint-fix`: the **lint** command with the **fix** flag activated (to automatically fix errors and warnings if it can), you probably want to create a new branch before running this as it might produce a big quantity of changed files
+
+`pnpm run lint-debug-config`: will print debugging information about what gets loaded by our ESLint config
+
+`pnpm run lint-print-config`: print out a json representation of what is in our ESLint config
+
+`pnpm run lint-inspect-config`: will open `http://localhost:7777/` in your browser, which is a tool to help you visualize the content of our ESLint config
+
 ## **Deployment**
 
 Deploy the project on a hosting platform that supports Next.js, such as Vercel, Netlify, or any other cloud provider. Ensure you have set up your environment variables correctly on the hosting platform.

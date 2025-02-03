@@ -1,3 +1,8 @@
+export interface Quote {
+  content: string
+  author: string
+}
+
 export interface Todo {
   id: number
   user_id: string
@@ -13,7 +18,7 @@ export interface Note {
   inserted_at: Date
 }
 
-export interface Event {
+export interface CalendarEvent {
   id: number
   user_id: string
   title: string
@@ -23,30 +28,27 @@ export interface Event {
 }
 
 export interface EventFormProps {
-  event?: Event
+  event?: CalendarEvent
   selectedDate: Date
   onEventSaved: () => void
   onCancel: () => void
 }
 
 export interface EventItemProps {
-  event: Event
+  event: CalendarEvent
   onEdit: () => void
   onDelete: () => void
 }
 
 export interface EventListProps {
-  events: Event[]
-  onEditEvent: (event: Event) => void
-  onDeleteEvent: (event: Event) => void
+  events: CalendarEvent[]
+  // eslint-disable-next-line no-unused-vars
+  onEditEvent: (event: CalendarEvent) => void
+  // eslint-disable-next-line no-unused-vars
+  onDeleteEvent: (event: CalendarEvent) => void
 }
 
-export interface Quote {
-  content: string
-  author: string
-}
-
-export interface TimerSession {
+export interface PomodoroSession {
   id: number
   mode: 'work' | 'shortBreak' | 'longBreak'
   duration: number
@@ -54,12 +56,13 @@ export interface TimerSession {
   completed: boolean
 }
 
-export type TimerSessionProps = {
-  timerSession: TimerSession
-  onDelete: (sessionId: number) => void
+export type SessionItemProps = {
+  session: PomodoroSession
+  onDelete: () => void
 }
 
-export type TimerSessionListProps = {
-  timerSessions: TimerSession[]
-  onDeleteSession: (sessionId: number) => void
+export type SessionListProps = {
+  sessions: PomodoroSession[]
+  // eslint-disable-next-line no-unused-vars
+  onDeleteSession: (session: PomodoroSession) => void
 }

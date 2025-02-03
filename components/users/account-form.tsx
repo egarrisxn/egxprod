@@ -40,8 +40,8 @@ export function AccountForm({user}: {user: User | null}) {
         setWebsite(data.website)
         setAvatarUrl(data.avatar_url)
       }
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
+      console.error('User data loading failed:', error)
       alert('Error loading user data!')
     } finally {
       setLoading(false)
@@ -75,8 +75,8 @@ export function AccountForm({user}: {user: User | null}) {
       })
       if (error) throw error
       toast.success('Successfully updated profile.')
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
+      console.error('Profile update failed:', error)
       toast.error('Error updating profile.')
     } finally {
       setLoading(false)

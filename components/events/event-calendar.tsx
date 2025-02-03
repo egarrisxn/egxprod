@@ -10,14 +10,14 @@ import {Button} from '../ui/button'
 import {EventForm} from './event-form'
 import {EventList} from './event-list'
 
-import type {Event} from '@/lib/types'
+import type {CalendarEvent} from '@/lib/types'
 
 export function EventCalendar() {
+  const [events, setEvents] = useState<CalendarEvent[]>([])
   const [date, setDate] = useState<Date>(new Date())
-  const [events, setEvents] = useState<Event[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
-  const [selectedEvent, setSelectedEvent] = useState<Event | undefined>(undefined)
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | undefined>(undefined)
 
   const fetchEvents = useCallback(async (selectedDate: Date) => {
     setIsLoading(true)
@@ -41,12 +41,12 @@ export function EventCalendar() {
     fetchEvents(date)
   }
 
-  const handleEditEvent = (event: Event) => {
+  const handleEditEvent = (event: CalendarEvent) => {
     setSelectedEvent(event)
     setIsDialogOpen(true)
   }
 
-  const handleDeleteEvent = async (event: Event) => {
+  const handleDeleteEvent = async (event: CalendarEvent) => {
     if (window.confirm('Are you sure you want to delete this event?')) {
       try {
         await deleteEvent(event.id)

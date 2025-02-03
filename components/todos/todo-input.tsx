@@ -1,5 +1,5 @@
 'use client'
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {editTodo} from '@/app/actions/todo'
 import {Input} from '../ui/input'
 
@@ -7,6 +7,7 @@ import type {Todo} from '@/lib/types'
 
 export function TodoInput({todo}: {todo: Todo}) {
   const [description, setDescription] = useState(todo.task)
+  // eslint-disable-next-line no-undef
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null)
 
   useEffect(() => {

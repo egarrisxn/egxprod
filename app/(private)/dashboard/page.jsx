@@ -1,9 +1,8 @@
-// import {List, Files, Calendar, Clock} from 'lucide-react'
-import {List, Files, Calendar} from 'lucide-react'
+import {List, Files, Calendar, Clock} from 'lucide-react'
 import {NoteList} from '@/components/notes/note-list'
 import {TodoList} from '@/components/todos/todo-list'
 import {EventCalendar} from '@/components/events/event-calendar'
-// import {PomodoroTimer} from '@/components/timer/pomodoro-timer'
+import {PomodoroTimer} from '@/components/timer/pomodoro-timer'
 
 export default function DashboardPage() {
   return (
@@ -34,9 +33,9 @@ export default function DashboardPage() {
       </div>
 
       {/* Timer & History Section */}
-      {/* <div className='flex sm:min-w-96'> */}
-      {/* Pomodoro Timer */}
-      {/* <section className='max-w-2xl p-2'>
+      <div className='flex sm:min-w-96'>
+        {/* Pomodoro Timer */}
+        <section className='max-w-2xl p-2'>
           <div className='flex flex-col rounded-lg border bg-card p-4 shadow-lg dark:border-foreground'>
             <div className='flex items-center gap-4 pb-4'>
               <Clock className='size-8 text-gray-500 dark:text-gray-400' />
@@ -44,8 +43,8 @@ export default function DashboardPage() {
             </div>
             <PomodoroTimer />
           </div>
-        </section> */}
-      {/* </div> */}
+        </section>
+      </div>
 
       {/* Calendar & Event Section */}
       <div className='flex'>

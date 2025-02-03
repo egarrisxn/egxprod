@@ -1,3 +1,4 @@
+import React from 'react'
 import PrivateHeader from '@/components/private-header'
 
 export default function SecureLayout({children}: {children: React.ReactNode}) {

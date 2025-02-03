@@ -1,5 +1,5 @@
 'use client'
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {editNote} from '@/app/actions/note'
 import {Input} from '../ui/input'
 
@@ -7,6 +7,7 @@ import type {Note} from '@/lib/types'
 
 export function NoteInput({note}: {note: Note}) {
   const [description, setDescription] = useState(note.thought)
+  // eslint-disable-next-line no-undef
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null)
 
   useEffect(() => {

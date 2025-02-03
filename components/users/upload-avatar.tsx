@@ -1,7 +1,7 @@
 'use client'
+import Image from 'next/image'
 import React, {useEffect, useState} from 'react'
 import {createClient} from '@/lib/supabase/client'
-import Image from 'next/image'
 
 export function UploadAvatar({
   uid,

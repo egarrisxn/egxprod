@@ -8,6 +8,7 @@ import {Input} from '../ui/input'
 import {Label} from '../ui/label'
 import {UploadAvatar} from './upload-avatar'
 import toast from 'react-hot-toast'
+
 import {type User} from '@supabase/supabase-js'
 
 export function AccountForm({user}: {user: User | null}) {

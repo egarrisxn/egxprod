@@ -2,7 +2,8 @@ import {List, Files, Calendar, Clock} from 'lucide-react'
 import {NoteList} from '@/components/notes/note-list'
 import {TodoList} from '@/components/todos/todo-list'
 import {EventCalendar} from '@/components/events/event-calendar'
-import {PomodoroTimer} from '@/components/timer/pomodoro-timer'
+// import {PomodoroTimer} from '@/components/timer/pomodoro-timer'
+import {PomodoroTimer} from '@/components/timer/pomodoro-component'
 
 export default function DashboardPage() {
   return (

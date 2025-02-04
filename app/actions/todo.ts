@@ -39,7 +39,7 @@ export async function addTodo(formData: FormData) {
   if (error) {
     throw new Error(error.message)
   }
-  revalidatePath('/')
+  revalidatePath('/dashboard')
 }
 
 export async function editTodo(todo: Todo) {
@@ -68,7 +68,7 @@ export async function deleteTodo(id: number) {
   if (error) {
     throw new Error(error.message)
   }
-  revalidatePath('/')
+  revalidatePath('/dashboard')
 }
 
 export async function deleteCompletedTodos() {
@@ -79,7 +79,7 @@ export async function deleteCompletedTodos() {
   if (error) {
     throw new Error(error.message)
   }
-  revalidatePath('/')
+  revalidatePath('/dashboard')
 }
 
 export async function deleteAllTodos() {
@@ -93,7 +93,7 @@ export async function deleteAllTodos() {
   if (error) {
     throw new Error(error.message)
   }
-  revalidatePath('/')
+  revalidatePath('/dashboard')
 }
 
 export async function onCheckChange(todo: Todo) {
@@ -108,5 +108,5 @@ export async function onCheckChange(todo: Todo) {
   if (error) {
     throw new Error(error.message)
   }
-  revalidatePath('/')
+  revalidatePath('/dashboard')
 }

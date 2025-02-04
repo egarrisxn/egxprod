@@ -42,7 +42,7 @@ export async function addSession(mode: 'work' | 'shortBreak' | 'longBreak', dura
     console.error('Error adding timer session:', error)
     return null
   }
-  return data[0]
+  return data ? data[0] : null
 }
 
 export async function completeSession(id: number) {
@@ -58,18 +58,23 @@ export async function completeSession(id: number) {
     .eq('user_id', user?.id)
 
   if (error) {
-    throw new Error(error.message)
+    console.error('There was an error:', error)
+    return false
   }
   return true
 }
 
 export async function deleteSession(id: number) {
   const supabase = await createClient()
+  const {
+    data: {user},
+  } = await supabase.auth.getUser()
 
-  const {error} = await supabase.from('timer').delete().eq('id', id)
+  const {error} = await supabase.from('timer').delete().eq('id', id).eq('user_id', user?.id)
 
   if (error) {
-    throw new Error(error.message)
+    console.error('Error deleting session:', error)
+    return false
   }
   return true
 }

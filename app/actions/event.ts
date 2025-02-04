@@ -29,7 +29,15 @@ export async function addEvent(title: string, description: string, time: string,
 
   const {data, error} = await supabase
     .from('events')
-    .insert({user_id: user?.id, title, description, time, date})
+    .insert([
+      {
+        user_id: user?.id,
+        title,
+        description,
+        time,
+        date,
+      },
+    ])
     .select()
 
   if (error) {
@@ -56,7 +64,6 @@ export async function updateEvent(id: number, title: string, description: string
     console.error('Error updating event:', error)
     return null
   }
-
   return data[0]
 }
 

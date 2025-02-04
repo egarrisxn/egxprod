@@ -38,7 +38,7 @@ export async function addNote(formData: FormData) {
   if (error) {
     throw new Error(error.message)
   }
-  revalidatePath('/')
+  revalidatePath('/dashboard')
 }
 
 export async function editNote(note: Note) {
@@ -67,5 +67,5 @@ export async function deleteNote(id: number) {
   if (error) {
     throw new Error(error.message)
   }
-  revalidatePath('/')
+  revalidatePath('/dashboard')
 }

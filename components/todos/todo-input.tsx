@@ -18,12 +18,10 @@ export function TodoInput({todo}: {todo: Todo}) {
     const newValue = e.target.value
     setDescription(newValue)
 
-    // Clear previous timeout if exists
     if (typingTimeout) {
       clearTimeout(typingTimeout)
     }
 
-    // Set a new timeout
     setTypingTimeout(
       setTimeout(async () => {
         await editTodo({...todo, task: e.target.value})

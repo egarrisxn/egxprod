@@ -18,12 +18,10 @@ export function NoteInput({note}: {note: Note}) {
     const newValue = e.target.value
     setDescription(newValue)
 
-    // Clear previous timeout if exists
     if (typingTimeout) {
       clearTimeout(typingTimeout)
     }
 
-    // Set a new timeout
     setTypingTimeout(
       setTimeout(async () => {
         await editNote({...note, thought: e.target.value})

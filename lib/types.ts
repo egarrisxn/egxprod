@@ -42,8 +42,10 @@ export interface EventItemProps {
 
 export interface EventListProps {
   events: CalendarEvent[]
-  onEditEvent: () => void
-  onDeleteEvent: () => void
+  // eslint-disable-next-line no-unused-vars
+  onEditEvent: (event: CalendarEvent) => void
+  // eslint-disable-next-line no-unused-vars
+  onDeleteEvent: (event: CalendarEvent) => void
 }
 
 export interface PomodoroSession {
@@ -61,5 +63,6 @@ export interface SessionItemProps {
 
 export interface SessionListProps {
   sessions: PomodoroSession[]
-  onDeleteSession: () => void
+  // eslint-disable-next-line no-unused-vars
+  onDeleteSession: (session: PomodoroSession) => void
 }

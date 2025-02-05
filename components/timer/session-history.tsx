@@ -32,6 +32,7 @@ export function SessionHistory() {
     if (window.confirm('Are you sure you want to delete this event?')) {
       try {
         await deleteSession(session.id)
+        setSessions((prev) => prev.filter((s) => s.id !== session.id))
       } catch (error) {
         console.error('Error deleting session:', error)
       }

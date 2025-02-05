@@ -35,8 +35,7 @@ export function SessionTimer() {
   }, [mode, cycleCount, sessionId])
 
   useEffect(() => {
-    // eslint-disable-next-line no-undef
-    let timer: NodeJS.Timeout
+    let timer: ReturnType<typeof setTimeout>
     if (isRunning && timeLeft > 0) {
       timer = setInterval(() => setTimeLeft((prev) => prev - 1), 1000)
     } else if (timeLeft === 0) {

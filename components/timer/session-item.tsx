@@ -5,9 +5,7 @@ import type {SessionItemProps} from '@/lib/types'
 
 export function SessionItem({session, onDelete}: SessionItemProps) {
   const formatSessionTime = (duration: number) => {
-    const minutes = Math.floor(duration / 60)
-    const seconds = duration % 60
-    return `${minutes}:${seconds.toString().padStart(2, '0')}`
+    return new Date(duration * 1000).toISOString().substring(14, 19)
   }
 
   return (

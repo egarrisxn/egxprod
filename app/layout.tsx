@@ -1,21 +1,21 @@
 import React from 'react'
-import type {Metadata} from 'next'
-import localFont from 'next/font/local'
+import {Geist, Geist_Mono} from 'next/font/google'
 import {ThemeProvider} from 'next-themes'
 import {Toaster} from 'react-hot-toast'
-import Header from '@/components/header'
 import Footer from '@/components/footer'
 import './globals.css'
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
+import type {Metadata} from 'next'
+
+const geistSans = Geist({
+  display: 'swap',
   variable: '--font-geist-sans',
-  weight: '100 900',
+  subsets: ['latin'],
 })
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
+const geistMono = Geist_Mono({
+  display: 'swap',
   variable: '--font-geist-mono',
-  weight: '100 900',
+  subsets: ['latin'],
 })
 
 const defaultUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -24,7 +24,10 @@ const defaultUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: 'xprod',
+  title: {
+    template: 'xprod | %s',
+    default: 'xprod | All-In-One',
+  },
   description: 'The All-In-One Productivity App!',
   referrer: 'origin-when-cross-origin',
   creator: 'https://egxo.dev.',
@@ -102,8 +105,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           enableSystem
           disableTransitionOnChange
         >
-          <main className='grid min-h-[100dvh] grid-rows-[auto_1fr_auto] font-sans'>
-            <Header />
+          <main className='grid font-sans'>
             {children}
             <Footer />
           </main>

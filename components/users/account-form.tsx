@@ -80,7 +80,7 @@ export function AccountForm({user}: {user: User | null}) {
       toast.error('Error updating profile.')
     } finally {
       setLoading(false)
-      router.push('/profile')
+      router.push('/protected/profile')
     }
   }
 

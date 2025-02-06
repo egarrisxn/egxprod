@@ -1,6 +1,6 @@
 'use client'
 import React, {useEffect, useState} from 'react'
-import {editNote} from '@/app/actions/note'
+import {editNote} from '@/app/actions'
 import {Input} from '../ui/input'
 
 import type {Note} from '@/lib/types'

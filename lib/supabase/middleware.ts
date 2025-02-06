@@ -2,7 +2,12 @@ import {createServerClient} from '@supabase/ssr'
 import {NextResponse, type NextRequest} from 'next/server'
 
 export async function updateUserSession(request: NextRequest) {
-  let supabaseResponse = NextResponse.next({request})
+  // let supabaseResponse = NextResponse.next({request})
+  let response = NextResponse.next({
+    request: {
+      headers: request.headers,
+    },
+  })
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -13,29 +18,27 @@ export async function updateUserSession(request: NextRequest) {
           return request.cookies.getAll()
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({name, value, options}) => {
-            request.cookies.set(name, value)
-            supabaseResponse = NextResponse.next({request})
-            supabaseResponse.cookies.set(name, value, options)
+          cookiesToSet.forEach(({name, value}) => request.cookies.set(name, value))
+          response = NextResponse.next({
+            request,
           })
+          cookiesToSet.forEach(({name, value, options}) =>
+            response.cookies.set(name, value, options),
+          )
         },
       },
     },
   )
 
-  const {
-    data: {user},
-  } = await supabase.auth.getUser()
+  const user = await supabase.auth.getUser()
 
-  const protectedPaths = ['/profile', '/dashboard']
-  const isProtected = protectedPaths.some((path) => request.nextUrl.pathname.startsWith(path))
-
-  if (isProtected && !user) {
-    // If accessing a protected route without being logged in, redirect to login
-    const url = request.nextUrl.clone()
-    url.pathname = '/login'
-    return NextResponse.redirect(url)
+  if (request.nextUrl.pathname.startsWith('/protected/dashboard') && user.error) {
+    return NextResponse.redirect(new URL('/signin', request.url))
   }
 
-  return supabaseResponse
+  if (request.nextUrl.pathname === '/' && !user.error) {
+    return NextResponse.redirect(new URL('/protected/dashboard', request.url))
+  }
+
+  return response
 }

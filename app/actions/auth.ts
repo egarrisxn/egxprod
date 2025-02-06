@@ -1,7 +1,7 @@
 'use server'
+import {redirect} from 'next/navigation'
 import {createClient} from '@/lib/supabase/server'
 import {CreateUserInput, LoginUserInput} from '@/lib/user-schema'
-import {redirect} from 'next/navigation'
 
 export async function signUpUser({
   data,
@@ -18,22 +18,20 @@ export async function signUpUser({
       emailRedirectTo,
     },
   })
-  return JSON.stringify(result)
+  return JSON.stringify(result) && redirect('/signin')
 }
 
 export async function signInUser(data: LoginUserInput) {
   const supabase = await createClient()
-
   const result = await supabase.auth.signInWithPassword({
     email: data.email,
     password: data.password,
   })
-  return JSON.stringify(result)
+  return JSON.stringify(result) && redirect('/private/dashboard')
 }
 
 export async function signOutUser() {
   const supabase = await createClient()
-
   await supabase.auth.signOut()
   return redirect('/')
 }

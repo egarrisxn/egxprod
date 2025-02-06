@@ -1,9 +1,9 @@
 'use client'
 import {useRef} from 'react'
-import {addNote} from '@/app/actions/note'
+import {addNote} from '@/app/actions'
 import {Button} from '../ui/button'
 import {Input} from '../ui/input'
-import PlusIcon from '../icons/plus'
+import PlusIcon from '../plus-icon'
 
 export function AddNote() {
   const ref = useRef<HTMLFormElement>(null)
@@ -21,9 +21,10 @@ export function AddNote() {
         <PlusIcon className='size-4' />
       </Button>
       <Input
+        type='text'
         id='thought'
-        className='border-none p-0 focus-visible:ring-transparent'
         name='thought'
+        className='border-none p-0 focus-visible:ring-transparent'
         placeholder='Add new thought'
         required
       />

@@ -1,5 +1,5 @@
 'use client'
-import {deleteCompletedTodos, deleteAllTodos} from '@/app/actions/todo'
+import {deleteCompletedTodos, deleteAllTodos} from '@/app/actions'
 import {Button} from '../ui/button'
 
 export function ClearTodos() {

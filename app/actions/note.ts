@@ -9,9 +9,7 @@ export async function getNotes(): Promise<Note[]> {
   const {
     data: {user},
   } = await supabase.auth.getUser()
-
   const {data, error} = await supabase.from('notes').select('*').eq('user_id', user?.id)
-
   if (error) {
     throw new Error(error.message)
   }
@@ -23,7 +21,6 @@ export async function addNote(formData: FormData) {
   const {
     data: {user},
   } = await supabase.auth.getUser()
-
   const {error} = await supabase
     .from('notes')
     .insert([
@@ -34,11 +31,10 @@ export async function addNote(formData: FormData) {
       },
     ])
     .select()
-
   if (error) {
     throw new Error(error.message)
   }
-  revalidatePath('/dashboard')
+  revalidatePath('/private/dashboard')
 }
 
 export async function editNote(note: Note) {
@@ -46,14 +42,12 @@ export async function editNote(note: Note) {
   const {
     data: {user},
   } = await supabase.auth.getUser()
-
   const {error} = await supabase
     .from('notes')
     .update({thought: note.thought})
     .eq('id', note.id)
     .eq('user_id', user?.id)
     .select()
-
   if (error) {
     throw new Error(error.message)
   }
@@ -61,11 +55,9 @@ export async function editNote(note: Note) {
 
 export async function deleteNote(id: number) {
   const supabase = await createClient()
-
   const {error} = await supabase.from('notes').delete().eq('id', id)
-
   if (error) {
     throw new Error(error.message)
   }
-  revalidatePath('/dashboard')
+  revalidatePath('/private/dashboard')
 }

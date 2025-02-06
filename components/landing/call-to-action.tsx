@@ -18,7 +18,7 @@ export function CallToAction() {
               asChild
               className='bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600'
             >
-              <Link href='/register'>Sign up for free </Link>
+              <Link href='/signup'>Sign up for free </Link>
             </Button>
           </div>
         </div>

@@ -22,7 +22,7 @@ export function Hero() {
               size='lg'
               className='bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600'
             >
-              <Link href='/register'>Get Started </Link>
+              <Link href='/signup'>Get Started </Link>
             </Button>
 
             <Button asChild variant='ghost' size='lg'>

@@ -1,13 +1,23 @@
 'use client'
 import React, {useState} from 'react'
-import {addEvent, updateEvent} from '@/app/actions/event'
+import {addEvent, updateEvent} from '@/app/actions'
 import {Button} from '../ui/button'
 import {Input} from '../ui/input'
 import {Label} from '../ui/label'
 
-import type {EventFormProps} from '@/lib/types'
+import type {CalendarEvent} from '@/lib/types'
 
-export function EventForm({event, selectedDate, onEventSaved, onCancel}: EventFormProps) {
+export function EventForm({
+  event,
+  selectedDate,
+  onEventSaved,
+  onCancel,
+}: {
+  event?: CalendarEvent
+  selectedDate: Date
+  onEventSaved: () => void
+  onCancel: () => void
+}) {
   const [title, setTitle] = useState(event?.title || '')
   const [description, setDescription] = useState(event?.description || '')
   const [time, setTime] = useState(event?.time || '12:00')

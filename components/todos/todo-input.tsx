@@ -1,6 +1,6 @@
 'use client'
 import React, {useEffect, useState} from 'react'
-import {editTodo} from '@/app/actions/todo'
+import {editTodo} from '@/app/actions'
 import {Input} from '../ui/input'
 
 import type {Todo} from '@/lib/types'

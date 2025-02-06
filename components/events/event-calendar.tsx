@@ -1,16 +1,72 @@
 'use client'
 import {useState, useEffect, useCallback} from 'react'
-import {format} from 'date-fns'
-import {Loader2, Plus} from 'lucide-react'
-import {getEvents, deleteEvent} from '@/app/actions/event'
+import {Loader2, Plus, Edit, Trash2} from 'lucide-react'
+import {getEvents, deleteEvent} from '@/app/actions'
+import {formatCalendarDate} from '@/lib/helpers'
 import {Card, CardContent, CardHeader, CardTitle} from '../ui/card'
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from '../ui/dialog'
 import {Calendar} from '../ui/calendar'
 import {Button} from '../ui/button'
 import {EventForm} from './event-form'
-import {EventList} from './event-list'
 
 import type {CalendarEvent} from '@/lib/types'
+
+function EventItem({
+  event,
+  onEdit,
+  onDelete,
+}: {
+  event: CalendarEvent
+  onEdit: () => void
+  onDelete: () => void
+}) {
+  return (
+    <li className='flex items-center gap-2'>
+      <div className='pt-1 text-sm font-medium'>{event.time}</div>
+      <div className='flex flex-1 flex-col border-l pl-2'>
+        <div className='truncate font-bold'>{event.title}</div>
+        <div className='text-sm text-muted-foreground'>{event.description}</div>
+      </div>
+      <div className='flex space-x-2'>
+        <Button variant='ghost' size='icon' className='size-4' onClick={onEdit}>
+          <Edit className='size-3' />
+          <span className='sr-only'>Edit event</span>
+        </Button>
+        <Button variant='ghost' size='icon' className='size-4 text-red-400' onClick={onDelete}>
+          <Trash2 className='size-3' />
+          <span className='sr-only'>Delete event</span>
+        </Button>
+      </div>
+    </li>
+  )
+}
+
+function EventList({
+  events,
+  onEditEvent,
+  onDeleteEvent,
+}: {
+  events: CalendarEvent[]
+  // eslint-disable-next-line no-unused-vars
+  onEditEvent: (event: CalendarEvent) => void
+  // eslint-disable-next-line no-unused-vars
+  onDeleteEvent: (event: CalendarEvent) => void
+}) {
+  return events.length > 0 ? (
+    <ul className='space-y-2'>
+      {events.map((event) => (
+        <EventItem
+          key={event.id}
+          event={event}
+          onEdit={() => onEditEvent(event)}
+          onDelete={() => onDeleteEvent(event)}
+        />
+      ))}
+    </ul>
+  ) : (
+    <p className='text-muted-foreground'>No events scheduled for this day.</p>
+  )
+}
 
 export function EventCalendar() {
   const [events, setEvents] = useState<CalendarEvent[]>([])
@@ -70,7 +126,7 @@ export function EventCalendar() {
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
             <Button className='w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600'>
-              <Plus className='mr-1 size-4' />
+              <Plus className='mr-0.5 size-4' />
               Add Event
             </Button>
           </DialogTrigger>
@@ -93,7 +149,7 @@ export function EventCalendar() {
 
       <Card className='w-full max-w-md'>
         <CardHeader>
-          <CardTitle>Events for {format(date, 'MMMM d, yyyy')}</CardTitle>
+          <CardTitle>Events for {formatCalendarDate(date)}</CardTitle>
         </CardHeader>
         <CardContent>
           {isLoading ? (

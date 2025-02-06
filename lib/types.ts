@@ -27,42 +27,21 @@ export interface CalendarEvent {
   date: string
 }
 
-export interface EventFormProps {
-  event?: CalendarEvent
-  selectedDate: Date
-  onEventSaved: () => void
-  onCancel: () => void
-}
-
-export interface EventItemProps {
-  event: CalendarEvent
-  onEdit: () => void
-  onDelete: () => void
-}
-
-export interface EventListProps {
-  events: CalendarEvent[]
-  // eslint-disable-next-line no-unused-vars
-  onEditEvent: (event: CalendarEvent) => void
-  // eslint-disable-next-line no-unused-vars
-  onDeleteEvent: (event: CalendarEvent) => void
-}
-
 export interface PomodoroSession {
   id: number
+  user_id: string
   mode: 'work' | 'shortBreak' | 'longBreak'
   duration: number
   started_at: string
   completed: boolean
 }
 
-export interface SessionItemProps {
-  session: PomodoroSession
-  onDelete: () => void
-}
-
-export interface SessionListProps {
-  sessions: PomodoroSession[]
-  // eslint-disable-next-line no-unused-vars
-  onDeleteSession: (session: PomodoroSession) => void
+export interface HabitTracker {
+  id: number
+  user_id: string
+  mode: 'filled' | 'empty'
+  name: string
+  created_at: string
+  completed: string[]
+  streak?: number
 }

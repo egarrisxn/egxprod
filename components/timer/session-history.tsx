@@ -1,10 +1,12 @@
 'use client'
 import {useEffect, useState} from 'react'
-import {getSessions, deleteSession} from '@/app/actions/timer'
+import {Trash2} from 'lucide-react'
+import {getSessions, deleteSession} from '@/app/actions'
+import {formatSessionHistory} from '@/lib/helpers'
 import {Card, CardContent, CardHeader, CardTitle} from '../ui/card'
-import {SessionList} from './session-list'
+import {Button} from '../ui/button'
 
-import {PomodoroSession} from '@/lib/types'
+import type {PomodoroSession} from '@/lib/types'
 
 export function SessionHistory() {
   const [sessions, setSessions] = useState<PomodoroSession[]>([])
@@ -28,11 +30,11 @@ export function SessionHistory() {
     fetchData()
   }, [])
 
-  const handleDeleteSession = async (session: PomodoroSession) => {
+  const handleDeleteSession = async (sessionId: number) => {
     if (window.confirm('Are you sure you want to delete this event?')) {
       try {
-        await deleteSession(session.id)
-        setSessions((prev) => prev.filter((s) => s.id !== session.id))
+        await deleteSession(sessionId)
+        setSessions((prev) => prev.filter((s) => s.id !== sessionId))
       } catch (error) {
         console.error('Error deleting session:', error)
       }
@@ -48,7 +50,47 @@ export function SessionHistory() {
         {loading && <p>Loading sessions...</p>}
         {error && <p className='text-red-500'>{error}</p>}
         {!loading && !error && sessions.length === 0 && <p>No sessions available.</p>}
-        <SessionList sessions={sessions} onDeleteSession={handleDeleteSession} />
+
+        {sessions.length > 0 ? (
+          <ul className='space-y-2'>
+            {sessions.map((session) => (
+              <li key={session.id} className='flex items-center gap-2'>
+                <div
+                  className={`text-sm font-medium ${
+                    session.mode === 'work'
+                      ? 'text-[#ff6961]'
+                      : session.mode === 'shortBreak'
+                        ? 'text-[#80ef80]'
+                        : 'text-[#a2bffe]'
+                  }`}
+                >
+                  {session.mode === 'work'
+                    ? 'Work'
+                    : session.mode === 'shortBreak'
+                      ? 'Short Break'
+                      : 'Long Break'}
+                </div>
+                <div className='flex flex-1 flex-col border-l pl-2'>
+                  <div className='text-sm text-muted-foreground'>
+                    {formatSessionHistory(session.duration)} |{' '}
+                    {new Date(session.started_at).toLocaleString()}
+                  </div>
+                </div>
+                <div className='flex space-x-2'>
+                  <Button
+                    variant='ghost'
+                    size='icon'
+                    className='size-4 text-red-400'
+                    onClick={() => handleDeleteSession(session.id)}
+                  >
+                    <Trash2 className='size-3' />
+                    <span className='sr-only'>Delete Timer Session</span>
+                  </Button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : null}
       </CardContent>
     </Card>
   )

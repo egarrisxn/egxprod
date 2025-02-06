@@ -6,14 +6,12 @@ export async function getEvents(date: string) {
   const {
     data: {user},
   } = await supabase.auth.getUser()
-
   const {data, error} = await supabase
     .from('events')
     .select('*')
     .eq('date', date)
     .eq('user_id', user?.id)
     .order('time', {ascending: true})
-
   if (error) {
     console.error('Error fetching events:', error)
     return []
@@ -26,7 +24,6 @@ export async function addEvent(title: string, description: string, time: string,
   const {
     data: {user},
   } = await supabase.auth.getUser()
-
   const {data, error} = await supabase
     .from('events')
     .insert([
@@ -39,7 +36,6 @@ export async function addEvent(title: string, description: string, time: string,
       },
     ])
     .select()
-
   if (error) {
     console.error('Error adding event:', error)
     return null
@@ -52,14 +48,12 @@ export async function updateEvent(id: number, title: string, description: string
   const {
     data: {user},
   } = await supabase.auth.getUser()
-
   const {data, error} = await supabase
     .from('events')
     .update({title, description, time})
     .eq('id', id)
     .eq('user_id', user?.id)
     .select()
-
   if (error) {
     console.error('Error updating event:', error)
     return null
@@ -72,9 +66,7 @@ export async function deleteEvent(id: number) {
   const {
     data: {user},
   } = await supabase.auth.getUser()
-
   const {error} = await supabase.from('events').delete().eq('id', id).eq('user_id', user?.id)
-
   if (error) {
     console.error('Error deleting event:', error)
     return false

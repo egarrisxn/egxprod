@@ -1,6 +1,6 @@
 import {ThemeSwitcher} from './theme-switcher'
 import {Github} from 'lucide-react'
-import {TimeOfDay} from './time'
+import {TimeDisplay} from './time-display'
 
 export default function Footer() {
   return (
@@ -18,7 +18,7 @@ export default function Footer() {
         </div>
 
         <div className='flex flex-row items-center gap-2 text-muted-foreground'>
-          <TimeOfDay />
+          <TimeDisplay />
           <ThemeSwitcher />
         </div>
       </div>

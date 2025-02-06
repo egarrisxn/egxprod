@@ -1,8 +1,9 @@
 'use client'
 import {useState, useEffect, useCallback} from 'react'
 import {addSession, completeSession} from '@/app/actions/timer'
-import {Button} from '../ui/button'
+import {formatSessionTimer} from '@/lib/helpers'
 import {Card, CardContent, CardHeader, CardTitle, CardFooter} from '../ui/card'
+import {Button} from '../ui/button'
 
 const WORK_TIME = 25 * 60
 const SHORT_BREAK = 5 * 60
@@ -58,12 +59,6 @@ export function SessionTimer() {
     setSessionId(null)
   }
 
-  const formatTime = (seconds: number) => {
-    const minutes = Math.floor(seconds / 60)
-    const secs = seconds % 60
-    return `${minutes}:${secs.toString().padStart(2, '0')}`
-  }
-
   return (
     <Card className='w-full max-w-md text-center'>
       <CardHeader>
@@ -74,7 +69,7 @@ export function SessionTimer() {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className='text-5xl font-semibold'>{formatTime(timeLeft)}</div>
+        <div className='text-5xl font-semibold'>{formatSessionTimer(timeLeft)}</div>
         <div className='mt-6 flex justify-center gap-4'>
           <Button
             className='bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600'

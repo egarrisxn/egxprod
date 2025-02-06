@@ -26,7 +26,7 @@ export async function signUpUser({
   emailRedirectTo?: string
 }) {
   const supabase = await createClient()
-  const {data: result, error} = await supabase.auth.signUp({
+  const {error} = await supabase.auth.signUp({
     email: data.email,
     password: data.password,
     options: {emailRedirectTo},
@@ -38,7 +38,7 @@ export async function signUpUser({
 // Sign in user
 export async function signInUser(data: LoginUserInput) {
   const supabase = await createClient()
-  const {data: result, error} = await supabase.auth.signInWithPassword({
+  const {error} = await supabase.auth.signInWithPassword({
     email: data.email,
     password: data.password,
   })

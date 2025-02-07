@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import {Button} from '@/components/ui/button'
 
-export const metadata = {
-  title: 'Page Not Found',
+import type {Metadata} from 'next'
+
+export const metadata: Metadata = {
+  title: 'Not Found',
 }
 
 export default function NotFoundPage() {

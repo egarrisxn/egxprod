@@ -1,20 +1,18 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import {redirect} from 'next/navigation'
-import {ArrowRight, Quote as QuoteIcon} from 'lucide-react'
 import {SupabaseClient} from '@supabase/supabase-js'
+import {ArrowRight, Quote as QuoteIcon} from 'lucide-react'
 import {createClient} from '@/lib/supabase/server'
 import {Button} from '../ui/button'
 import {Card, CardContent} from '../ui/card'
 import quotes from '@/lib/xquotes.json'
 
-export async function ProfileCard() {
+export default async function ProfileCard() {
   const supabase = await createClient()
-
   const {
     data: {user},
   } = await supabase.auth.getUser()
-
   if (!user) {
     redirect('/signin')
   }
@@ -25,17 +23,13 @@ export async function ProfileCard() {
       .select('avatar_url')
       .eq('id', uid)
       .single()
-
     if (error || !data?.avatar_url) {
       return {error: 'Avatar not found or failed to load.'}
     }
-
     const {data: publicUrlData} = supabase.storage.from('avatars').getPublicUrl(data.avatar_url)
-
     if (!publicUrlData?.publicUrl) {
       return {error: 'Failed to retrieve public URL.'}
     }
-
     return {publicUrl: publicUrlData.publicUrl}
   }
 
@@ -59,7 +53,6 @@ export async function ProfileCard() {
     )
   }
 
-  // Fetch a random quote
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
 
   return (

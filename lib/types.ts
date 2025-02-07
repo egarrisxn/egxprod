@@ -1,3 +1,10 @@
+export interface MetadataArgs {
+  path: string
+  title: string
+  description: string
+  image?: string
+}
+
 export interface Quote {
   content: string
   author: string
@@ -18,7 +25,7 @@ export interface Note {
   inserted_at: Date
 }
 
-export interface CalendarEvent {
+export interface Event {
   id: number
   user_id: string
   title: string
@@ -27,7 +34,7 @@ export interface CalendarEvent {
   date: string
 }
 
-export interface PomodoroSession {
+export interface Timer {
   id: number
   user_id: string
   mode: 'work' | 'shortBreak' | 'longBreak'
@@ -36,7 +43,7 @@ export interface PomodoroSession {
   completed: boolean
 }
 
-export interface HabitTracker {
+export interface Habit {
   id: number
   user_id: string
   mode: 'filled' | 'empty'
@@ -44,4 +51,31 @@ export interface HabitTracker {
   created_at: string
   completed: string[]
   streak?: number
+}
+
+export interface HabitTrackerProps {
+  defaultHabits: Habit[]
+}
+
+export interface Bookmark {
+  id: number
+  user_id: string
+  title: string
+  url: string
+  image_url: string
+  inserted_at: Date
+}
+
+export interface BookmarkRowProps {
+  bookmark: Bookmark
+  // eslint-disable-next-line no-unused-vars
+  copyLink: (link: string) => void
+  // eslint-disable-next-line no-unused-vars
+  editBookmark: (id: number, newTitle: string, newUrl: string) => void
+  // eslint-disable-next-line no-unused-vars
+  deleteBookmark: (id: number) => void
+}
+
+export interface BookmarksListProps {
+  defaultBookmarks: Bookmark[]
 }

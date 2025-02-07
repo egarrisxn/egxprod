@@ -1,6 +1,6 @@
 'use client'
 import {Trash2} from 'lucide-react'
-import {deleteTodo} from '@/app/actions'
+import {deleteTodo} from '@/app/actions/todo'
 import {Button} from '../ui/button'
 
 export function DeleteTodo({id}: {id: number}) {

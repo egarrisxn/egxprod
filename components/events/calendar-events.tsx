@@ -1,7 +1,7 @@
 import {Calendar} from 'lucide-react'
 import {EventCalendar} from './event-calendar'
 
-export function CalendarEvents() {
+export default function CalendarEvents() {
   return (
     <section className='max-w-4xl p-2'>
       <div className='flex flex-col rounded-lg border bg-card p-4 shadow-lg dark:border-foreground'>

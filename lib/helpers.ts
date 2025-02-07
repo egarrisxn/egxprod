@@ -1,3 +1,41 @@
+import {toast} from 'react-hot-toast'
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getUrlMetadata = async (url: any): Promise<{title: string; favicon: string}> => {
+  const fallbackFaviconUrl = `https://s2.googleusercontent.com/s2/favicons?domain_url=${url}`
+
+  try {
+    const response = await fetch(`/metadata/`, {
+      method: 'POST',
+      body: JSON.stringify({url: url}),
+    })
+    const {title, favicon} = await response.json()
+
+    return {title, favicon}
+  } catch (error) {
+    console.error(error)
+    return {title: url, favicon: fallbackFaviconUrl}
+  }
+}
+
+export const copyToClipboard = (link: string): void => {
+  navigator.clipboard
+    .writeText(link)
+    .then(() => {
+      toast.success('Copied to clipboard')
+    })
+    .catch((error) => {
+      toast.error('Unable to copy')
+      console.error(error)
+    })
+}
+
+export const isValidURL = (url: string): boolean => {
+  const urlRegex: RegExp =
+    /^(?:https?|ftp):\/\/(?:\w+:{0,1}\w*@)?(?:\S+)(?::\d+)?(?:\/|\/(?:[\w#!:.?+=&%@!\-/]))?$/
+  return urlRegex.test(url)
+}
+
 export const formatSessionHistory = (duration: number) => {
   return new Date(duration * 1000).toISOString().substring(14, 19)
 }
@@ -61,7 +99,7 @@ export const groupDaysByMonth = (days: string[]) => {
   return grouped
 }
 
-export function calculateStreak(completedDays: string[]): number {
+export const calculateStreak = (completedDays: string[]): number => {
   if (!completedDays.length) return 0
   const sortedDays = [...completedDays].sort(
     (a, b) => new Date(b).getTime() - new Date(a).getTime(),
@@ -78,6 +116,5 @@ export function calculateStreak(completedDays: string[]): number {
     }
     prevDate = currentDate
   }
-
   return streak + 1
 }

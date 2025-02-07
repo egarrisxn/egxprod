@@ -1,12 +1,18 @@
 import {List} from 'lucide-react'
-import {getTodos, editTodo} from '@/app/actions'
+import {getTodos, editTodo} from '@/app/actions/todo'
 import {AddTodo} from './add-todo'
 import {ClearTodos} from './clear-todos'
 import {DeleteTodo} from './delete-todo'
 import {TodoInput} from './todo-input'
 import {TodoCheckbox} from './todo-checkbox'
 
-import type {Todo} from '@/lib/types'
+interface Todo {
+  id: number
+  user_id: string
+  task: string
+  is_complete: boolean
+  inserted_at: Date
+}
 
 export async function TodoItem({todo}: {todo: Todo}) {
   return (

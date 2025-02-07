@@ -1,6 +1,6 @@
 'use client'
-import {deleteNote} from '@/app/actions'
 import {Trash2} from 'lucide-react'
+import {deleteNote} from '@/app/actions/note'
 import {Button} from '../ui/button'
 
 export function DeleteNote({id}: {id: number}) {

@@ -1,8 +1,9 @@
 'use server'
 import {redirect} from 'next/navigation'
 import {createClient} from '@/lib/supabase/server'
-import {CreateUserInput, LoginUserInput} from '@/lib/user-schema'
+import {CreateUserInput, LoginUserInput} from '@/lib/schema'
 
+//! Sign up user
 export async function signUpUser({
   data,
   emailRedirectTo,
@@ -11,25 +12,27 @@ export async function signUpUser({
   emailRedirectTo?: string
 }) {
   const supabase = await createClient()
-  const result = await supabase.auth.signUp({
+  const {error} = await supabase.auth.signUp({
     email: data.email,
     password: data.password,
-    options: {
-      emailRedirectTo,
-    },
+    options: {emailRedirectTo},
   })
-  return JSON.stringify(result) && redirect('/signin')
+  if (error) throw new Error(`Error signing up: ${error.message}`)
+  return redirect('/signin')
 }
 
+//! Sign in user
 export async function signInUser(data: LoginUserInput) {
   const supabase = await createClient()
-  const result = await supabase.auth.signInWithPassword({
+  const {error} = await supabase.auth.signInWithPassword({
     email: data.email,
     password: data.password,
   })
-  return JSON.stringify(result) && redirect('/private/dashboard')
+  if (error) throw new Error(`Error signing in: ${error.message}`)
+  return redirect('/protected/dashboard')
 }
 
+//! Sign out user
 export async function signOutUser() {
   const supabase = await createClient()
   await supabase.auth.signOut()

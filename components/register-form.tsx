@@ -1,17 +1,17 @@
 'use client'
-import {useTransition} from 'react'
+import * as React from 'react'
 import {useRouter} from 'next/navigation'
 import {zodResolver} from '@hookform/resolvers/zod'
 import {SubmitHandler, useForm} from 'react-hook-form'
-import {CreateUserInput, createUserSchema} from '@/lib/user-schema'
+import {CreateUserInput, createUserSchema} from '@/lib/schema'
 import {signUpUser} from '@/app/actions/auth'
 import {Input} from './ui/input'
 import {Label} from './ui/label'
 import {Button} from './ui/button'
 import toast from 'react-hot-toast'
 
-export function RegisterForm() {
-  const [isPending, startTransition] = useTransition()
+export default function RegisterForm() {
+  const [isPending, startTransition] = React.useTransition()
   const router = useRouter()
 
   const methods = useForm<CreateUserInput>({

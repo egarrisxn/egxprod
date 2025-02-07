@@ -1,16 +1,21 @@
 'use client'
-import React, {useEffect, useState} from 'react'
-import {editNote} from '@/app/actions'
+import * as React from 'react'
+import {editNote} from '@/app/actions/note'
 import {Input} from '../ui/input'
 
-import type {Note} from '@/lib/types'
+interface Note {
+  id: number
+  user_id: string
+  thought: string
+  inserted_at: Date
+}
 
 export function NoteInput({note}: {note: Note}) {
-  const [description, setDescription] = useState(note.thought)
+  const [description, setDescription] = React.useState(note.thought)
   // eslint-disable-next-line no-undef
-  const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null)
+  const [typingTimeout, setTypingTimeout] = React.useState<NodeJS.Timeout | null>(null)
 
-  useEffect(() => {
+  React.useEffect(() => {
     setDescription(note.thought)
   }, [note.thought])
 

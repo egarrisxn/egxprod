@@ -1,10 +1,15 @@
 import {Files} from 'lucide-react'
-import {getNotes, editNote} from '@/app/actions'
+import {getNotes, editNote} from '@/app/actions/note'
 import {AddNote} from './add-note'
 import {DeleteNote} from './delete-note'
 import {NoteInput} from './note-input'
 
-import type {Note} from '@/lib/types'
+interface Note {
+  id: number
+  user_id: string
+  thought: string
+  inserted_at: Date
+}
 
 async function Note({note}: {note: Note}) {
   return (

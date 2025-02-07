@@ -21,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: 'https://xprod.vercel.app/protected',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 1,
+    },
+    {
       url: 'https://xprod.vercel.app/protected/dashboard',
       lastModified: new Date(),
       changeFrequency: 'yearly',

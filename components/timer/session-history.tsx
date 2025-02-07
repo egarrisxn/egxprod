@@ -1,19 +1,26 @@
 'use client'
-import {useEffect, useState} from 'react'
+import * as React from 'react'
 import {Trash2} from 'lucide-react'
-import {getSessions, deleteSession} from '@/app/actions'
+import {getSessions, deleteSession} from '@/app/actions/timer'
 import {formatSessionHistory} from '@/lib/helpers'
 import {Card, CardContent, CardHeader, CardTitle} from '../ui/card'
 import {Button} from '../ui/button'
 
-import type {PomodoroSession} from '@/lib/types'
+interface Timer {
+  id: number
+  user_id: string
+  mode: 'work' | 'shortBreak' | 'longBreak'
+  duration: number
+  started_at: string
+  completed: boolean
+}
 
 export function SessionHistory() {
-  const [sessions, setSessions] = useState<PomodoroSession[]>([])
-  const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string | null>(null)
+  const [sessions, setSessions] = React.useState<Timer[]>([])
+  const [loading, setLoading] = React.useState<boolean>(false)
+  const [error, setError] = React.useState<string | null>(null)
 
-  useEffect(() => {
+  React.useEffect(() => {
     async function fetchData() {
       setLoading(true)
       try {

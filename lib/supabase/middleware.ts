@@ -32,11 +32,19 @@ export async function updateUserSession(request: NextRequest) {
 
   const user = await supabase.auth.getUser()
 
-  if (request.nextUrl.pathname.startsWith('/protected/dashboard') && user.error) {
+  if (request.nextUrl.pathname.startsWith('/protected') && user.error) {
     return NextResponse.redirect(new URL('/signin', request.url))
   }
 
   if (request.nextUrl.pathname === '/' && !user.error) {
+    return NextResponse.redirect(new URL('/protected/dashboard', request.url))
+  }
+
+  if (request.nextUrl.pathname === '/signin' && !user.error) {
+    return NextResponse.redirect(new URL('/protected/dashboard', request.url))
+  }
+
+  if (request.nextUrl.pathname === '/signup' && !user.error) {
     return NextResponse.redirect(new URL('/protected/dashboard', request.url))
   }
 

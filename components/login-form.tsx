@@ -1,22 +1,22 @@
 'use client'
-import {useState, useTransition} from 'react'
+import * as React from 'react'
+import Image from 'next/image'
+import toast from 'react-hot-toast'
 import {useRouter} from 'next/navigation'
 import {zodResolver} from '@hookform/resolvers/zod'
 import {SubmitHandler, useForm} from 'react-hook-form'
-import {LoginUserInput, loginUserSchema} from '@/lib/user-schema'
+import {LoginUserInput, loginUserSchema} from '@/lib/schema'
 import {createClient} from '@/lib/supabase/client'
 import {signInUser} from '@/app/actions/auth'
 import {Input} from './ui/input'
 import {Label} from './ui/label'
 import {Button} from './ui/button'
 import {Separator} from './ui/separator'
-import Image from 'next/image'
-import toast from 'react-hot-toast'
 
-export function LoginForm() {
+export default function LoginForm() {
   const router = useRouter()
-  const [error, setError] = useState('')
-  const [isPending, startTransition] = useTransition()
+  const [error, setError] = React.useState('')
+  const [isPending, startTransition] = React.useTransition()
   const supabase = createClient()
 
   const methods = useForm<LoginUserInput>({

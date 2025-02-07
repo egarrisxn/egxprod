@@ -1,8 +1,8 @@
 import {redirect} from 'next/navigation'
 import {createClient} from '@/lib/supabase/server'
-import {AccountForm} from './account-form'
+import AccountForm from './account-form'
 
-export async function EditProfileCard() {
+export default async function EditProfileCard() {
   const supabase = await createClient()
 
   const {

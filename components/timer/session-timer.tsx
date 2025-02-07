@@ -1,5 +1,5 @@
 'use client'
-import {useState, useEffect, useCallback} from 'react'
+import * as React from 'react'
 import {addSession, completeSession} from '@/app/actions/timer'
 import {formatSessionTimer} from '@/lib/helpers'
 import {Card, CardContent, CardHeader, CardTitle, CardFooter} from '../ui/card'
@@ -11,13 +11,13 @@ const LONG_BREAK = 15 * 60
 const CYCLES_BEFORE_LONG_BREAK = 4
 
 export function SessionTimer() {
-  const [timeLeft, setTimeLeft] = useState(WORK_TIME)
-  const [isRunning, setIsRunning] = useState(false)
-  const [mode, setMode] = useState<'work' | 'shortBreak' | 'longBreak'>('work')
-  const [cycleCount, setCycleCount] = useState(0)
-  const [sessionId, setSessionId] = useState<number | null>(null)
+  const [timeLeft, setTimeLeft] = React.useState(WORK_TIME)
+  const [isRunning, setIsRunning] = React.useState(false)
+  const [mode, setMode] = React.useState<'work' | 'shortBreak' | 'longBreak'>('work')
+  const [cycleCount, setCycleCount] = React.useState(0)
+  const [sessionId, setSessionId] = React.useState<number | null>(null)
 
-  const handleSessionEnd = useCallback(async () => {
+  const handleSessionEnd = React.useCallback(async () => {
     setIsRunning(false)
     if (sessionId) await completeSession(sessionId)
     if (mode === 'work') {
@@ -35,7 +35,7 @@ export function SessionTimer() {
     }
   }, [mode, cycleCount, sessionId])
 
-  useEffect(() => {
+  React.useEffect(() => {
     let timer: ReturnType<typeof setTimeout>
     if (isRunning && timeLeft > 0) {
       timer = setInterval(() => setTimeLeft((prev) => prev - 1), 1000)

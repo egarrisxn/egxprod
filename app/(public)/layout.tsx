@@ -12,13 +12,14 @@ export default function PublicLayout({children}: {children: React.ReactNode}) {
             <Image src='/prod-logo.png' alt='nav-icon' width={32} height={32} />
           </Link>
           <div className='flex items-center sm:gap-2'>
-            <Button asChild variant='link'>
+            <Button disabled asChild variant='link'>
               <Link href='/'>Home</Link>
             </Button>
-            <Button asChild variant='link'>
+            <Button disabled asChild variant='link'>
               <Link href='/signin'>Sign In</Link>
             </Button>
             <Button
+              disabled
               asChild
               className='bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600'
             >

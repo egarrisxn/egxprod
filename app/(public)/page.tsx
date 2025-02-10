@@ -1,10 +1,10 @@
 import * as React from 'react'
-import type {Metadata} from 'next'
 import {Hero} from '@/components/landing/hero'
 import {Features} from '@/components/landing/features'
 import {Examples} from '@/components/landing/examples'
 import {CallToAction} from '@/components/landing/call-to-action'
 import generateMetadata from '@/lib/seo'
+import type {Metadata} from 'next'
 
 export const metadata: Metadata = generateMetadata({
   path: '/',

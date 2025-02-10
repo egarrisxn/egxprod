@@ -1,8 +1,9 @@
 import * as React from 'react'
-import type {Metadata} from 'next'
-import RegisterForm from '@/components/register-form'
+// import RegisterForm from '@/components/register-form'
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card'
+
 import generateMetadata from '@/lib/seo'
+import type {Metadata} from 'next'
 
 export const metadata: Metadata = generateMetadata({
   path: '/signup',
@@ -19,7 +20,8 @@ export default function SignUpPage() {
           <CardDescription>Register your account to continue</CardDescription>
         </CardHeader>
         <CardContent>
-          <RegisterForm />
+          BRB
+          {/* <RegisterForm /> */}
         </CardContent>
       </Card>
     </div>

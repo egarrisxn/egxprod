@@ -4,9 +4,9 @@ import Link from 'next/link'
 export function Hero() {
   return (
     <section className='relative isolate pt-14 xl:pt-24'>
-      <div className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
+      {/* <div className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
         <div className='relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]' />
-      </div>
+      </div> */}
       <div className='mx-auto max-w-7xl px-6 pb-16 pt-28 lg:pb-20 lg:pt-24'>
         <div className='mx-auto max-w-2xl text-center'>
           <h1 className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text py-1 text-6xl font-bold tracking-tight text-transparent sm:text-6xl lg:text-8xl'>

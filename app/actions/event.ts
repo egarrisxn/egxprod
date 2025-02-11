@@ -1,5 +1,5 @@
 'use server'
-import {createClient} from '@/lib/supabase/server'
+import {createClient} from '@/utils/supabase/server'
 
 //!? Auth user utility
 async function getUserData() {

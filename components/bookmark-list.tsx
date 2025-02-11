@@ -5,7 +5,7 @@ import {Plus, Pencil, Trash2, Copy} from 'lucide-react'
 import {motion, Reorder} from 'motion/react'
 import {toast} from 'react-hot-toast'
 import {addBookmark, updateBookmark, deleteBookmark} from '@/app/actions/bookmark'
-import {copyToClipboard} from '@/lib/helpers'
+import {copyToClipboard} from '@/utils/helpers'
 
 interface Bookmark {
   id: number

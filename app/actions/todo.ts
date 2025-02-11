@@ -1,8 +1,8 @@
 'use server'
 import {revalidatePath} from 'next/cache'
-import {createClient} from '@/lib/supabase/server'
+import {createClient} from '@/utils/supabase/server'
 
-import type {Todo} from '@/lib/types'
+import type {Todo} from '@/utils/types'
 
 //!? Auth user utility
 async function getUserData() {

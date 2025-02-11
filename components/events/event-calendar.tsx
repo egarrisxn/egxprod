@@ -2,7 +2,7 @@
 import * as React from 'react'
 import {Loader2, Plus, Edit, Trash2} from 'lucide-react'
 import {getEvents, addEvent, updateEvent, deleteEvent} from '@/app/actions/event'
-import {formatCalendarDate} from '@/lib/helpers'
+import {formatCalendarDate} from '@/utils/helpers'
 import {Card, CardContent, CardHeader, CardTitle} from '../ui/card'
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from '../ui/dialog'
 import {Calendar} from '../ui/calendar'

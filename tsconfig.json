@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/(public)/layout.xt"
+    "app/(main)/layout.xt"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,48 +1,20 @@
 import type {MetadataRoute} from 'next'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     {
-      url: 'https://xprod.vercel.app',
+      url: `${baseUrl}`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
     },
     {
-      url: 'https://xprod.vercel.app/signin',
+      url: `${baseUrl}/login`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
     },
     {
-      url: 'https://xprod.vercel.app/signup',
+      url: `${baseUrl}/register`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
-    {
-      url: 'https://xprod.vercel.app/protected',
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
-    {
-      url: 'https://xprod.vercel.app/protected/dashboard',
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
-    {
-      url: 'https://xprod.vercel.app/protected/profile',
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
-    {
-      url: 'https://xprod.vercel.app/protected/profile/edit',
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
     },
   ]
 }

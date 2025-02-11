@@ -1,5 +1,5 @@
 'use server'
-import {createClient} from '@/lib/supabase/server'
+import {createClient} from '@/utils/supabase/server'
 // import { getUrlMetadata } from '@/lib/helpers'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -1,7 +1,7 @@
 'use client'
 import * as React from 'react'
 import {addSession, completeSession} from '@/app/actions/timer'
-import {formatSessionTimer} from '@/lib/helpers'
+import {formatSessionTimer} from '@/utils/helpers'
 import {Card, CardContent, CardHeader, CardTitle, CardFooter} from '../ui/card'
 import {Button} from '../ui/button'
 

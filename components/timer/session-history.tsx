@@ -2,7 +2,7 @@
 import * as React from 'react'
 import {Trash2} from 'lucide-react'
 import {getSessions, deleteSession} from '@/app/actions/timer'
-import {formatSessionHistory} from '@/lib/helpers'
+import {formatSessionHistory} from '@/utils/helpers'
 import {Card, CardContent, CardHeader, CardTitle} from '../ui/card'
 import {Button} from '../ui/button'
 

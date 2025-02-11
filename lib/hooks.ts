@@ -1,6 +1,6 @@
 'use client'
 import * as React from 'react'
-import {createClient} from '@/lib/supabase/client'
+import {createClient} from '@/utils/supabase/client'
 
 export function useAvatar(userId: string | null) {
   const [avatarUrl, setAvatarUrl] = React.useState<string | null>(null)

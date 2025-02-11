@@ -63,10 +63,34 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply flex min-h-screen flex-col scroll-smooth bg-background font-sans text-foreground antialiased;
+  }
+  h1 {
+    @apply text-4xl font-extrabold md:text-5xl;
+  }
+  h2 {
+    @apply text-3xl font-bold md:text-4xl;
+  }
+  h3 {
+    @apply text-2xl font-bold md:text-3xl;
+  }
+  h4 {
+    @apply text-xl font-semibold md:text-2xl;
+  }
+  h5 {
+    @apply text-lg font-semibold md:text-xl;
+  }
+  h6 {
+    @apply text-base font-semibold md:text-lg;
+  }
+  p {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+  section {
+    @apply py-10 sm:py-20;
   }
 }
 
-body {
+/* body {
   font-family: Arial, Helvetica, sans-serif;
-}
+} */

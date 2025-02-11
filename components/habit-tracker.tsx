@@ -2,7 +2,7 @@
 import * as React from 'react'
 import {Activity, Trash2} from 'lucide-react'
 import {addHabit, getHabits, deleteHabit, logHabitDay, unlogHabitDay} from '@/app/actions/habit'
-import {getLast365Days, getToday, groupDaysByMonth, calculateStreak} from '@/lib/helpers'
+import {getLast365Days, getToday, groupDaysByMonth, calculateStreak} from '@/utils/helpers'
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter} from './ui/dialog'
 import {Card, CardContent, CardHeader, CardTitle} from './ui/card'
 import {Input} from './ui/input'

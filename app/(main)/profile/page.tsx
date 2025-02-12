@@ -1,30 +1,31 @@
-import * as React from 'react'
-import generateMetadata from '@/utils/seo'
-import type {Metadata} from 'next'
+import * as React from "react";
+import { createClient } from "@/utils/supabase/server";
+import generateMetadata from "@/utils/seo";
+
+import type { Metadata } from "next";
 
 export const metadata: Metadata = generateMetadata({
-  path: '/protected/profile',
-  title: 'Profile | xprod',
-  description: 'Your protected profile page.',
-})
+  path: "/profile",
+  title: "Profile | xprod",
+  description: "Your profile page.",
+});
 
-export default function ProfilePage() {
+export default async function ProfilePage() {
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
-    <div className='mx-auto mb-24 flex flex-col gap-4 px-2 sm:px-6 xl:flex-row'>Profile Page</div>
-  )
+    <section className="container space-y-3">
+      <h3>Profile Page</h3>
+      <p>
+        <strong>Email:</strong> {user?.email}
+      </p>
+    </section>
+  );
 }
-
-// import * as React from 'react'
-// import ProfileCard from '@/components/users/profile-card'
-// import generateMetadata from '@/utils/seo'
-
-// import type {Metadata} from 'next'
-
-// export const metadata: Metadata = generateMetadata({
-//   path: '/protected/profile',
-//   title: 'Profile | xprod',
-//   description: 'Your protected profile page.',
-// })
 
 // export default function ProfilePage() {
 //   return <ProfileCard />

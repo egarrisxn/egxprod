@@ -1,17 +1,30 @@
-import * as React from 'react'
-import generateMetadata from '@/utils/seo'
-import type {Metadata} from 'next'
+import * as React from "react";
+import { createClient } from "@/utils/supabase/server";
+import generateMetadata from "@/utils/seo";
+
+import type { Metadata } from "next";
 
 export const metadata: Metadata = generateMetadata({
-  path: '/protected/dashboard',
-  title: 'Dashboard | xprod',
-  description: 'Your protected dashboard page.',
-})
+  path: "/dashboard",
+  title: "Dashboard | xprod",
+  description: "Your dashboard page.",
+});
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
-    <div className='mx-auto mb-24 flex flex-col gap-4 px-2 sm:px-6 xl:flex-row'>Dashboard Page</div>
-  )
+    <section className="container space-y-3">
+      <h3>Dashboard Page</h3>
+      <p>
+        <strong>Email:</strong> {user?.email}
+      </p>
+    </section>
+  );
 }
 
 // import * as React from 'react'
@@ -25,12 +38,6 @@ export default function DashboardPage() {
 // import BookmarkList from '@/components/bookmark-list'
 // import generateMetadata from '@/utils/seo'
 // import type {Metadata} from 'next'
-
-// export const metadata: Metadata = generateMetadata({
-//   path: '/protected/dashboard',
-//   title: 'Dashboard | xprod',
-//   description: 'Your protected dashboard page.',
-// })
 
 // export default async function DashboardPage() {
 //   const habits = await getHabits()

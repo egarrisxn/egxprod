@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { authWithGoogle } from "@/app/actions";
+import { authWithGoogle } from "@/app/actions/auth";
 import { Button } from "@/components/ui/button";
 
 export default function GoogleAuth() {

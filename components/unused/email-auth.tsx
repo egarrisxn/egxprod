@@ -1,5 +1,5 @@
 "use client";
-import { signInWithEmail, signUpWithEmail } from "@/app/actions";
+import { signInWithEmail, signUpWithEmail } from "@/app/actions/auth";
 import { formSchema, type formValueType } from "@/utils/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -29,7 +29,7 @@ export default function EmailAuth({ formType }: AuthFormProps) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
-        className="w-full flex flex-col gap-y-4"
+        className="flex w-full flex-col gap-y-4"
       >
         <InputForm
           label="Email"

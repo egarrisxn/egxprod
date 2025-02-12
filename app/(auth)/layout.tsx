@@ -1,11 +1,14 @@
-interface AuthLayoutProps {
-  children: React.ReactNode;
-}
+import AuthNav from "@/components/auth-nav";
 
-export default function AuthLayout({ children }: AuthLayoutProps) {
+export default function AuthLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <>
-      <main className="min-h-screen">{children}</main>
+      <AuthNav />
+      <main className="min-h-screen flex-1 p-4 sm:p-6">{children}</main>
     </>
   );
 }

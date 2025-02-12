@@ -1,0 +1,44 @@
+eslint.config.ts  
+  
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "next dev --turbopack",
+    "build": "pnpm run lint && next build",
+    "start": "next start",
+    "next-lint": "next lint",
+    "lint": "eslint --cache --cache-location .next/cache/eslint/",
+    "lint-nocache": "eslint",
+    "lint:fix": "eslint --fix",
+    "lint-debug-config": "eslint --debug eslint.config.ts",
+    "lint-print-config": "eslint --print-config eslint.config.ts",
+    "lint-inspect-config": "eslint --inspect-config eslint.config.ts",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
+  },
+
+import eslintPlugin from '@eslint/js'
+import {FlatCompat} from '@eslint/eslintrc'
+import type {Linter} from 'eslint'
+
+const compat = new FlatCompat()
+
+const eslintConfig = [
+  {
+    name: 'custom/eslint/recommended',
+    files: ['**/*.ts?(x)'],
+    ...eslintPlugin.configs.recommended,
+  },
+]
+
+const ignoresConfig = [
+  {
+    name: 'xprod/eslint/ignores',
+    ignores: ['**/node_modules/', '.git/', '.vscode/', '.next/', 'public/'],
+  },
+] as Linter.Config[]
+
+export default [
+  ...compat.extends('next/core-web-vitals', 'next/typescript', 'prettier'),
+  ...eslintConfig,
+  ...ignoresConfig,
+] satisfies Linter.Config[]

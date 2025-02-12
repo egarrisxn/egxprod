@@ -1,6 +1,6 @@
-import type {MetadataRoute} from 'next'
+import type { MetadataRoute } from "next";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
@@ -16,5 +16,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/register`,
       lastModified: new Date(),
     },
-  ]
+  ];
 }

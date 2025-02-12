@@ -1,11 +1,11 @@
-import type {NextConfig} from 'next'
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'ilguvbltlgafvgxgpdbl.supabase.co',
+        protocol: "https",
+        hostname: "ilguvbltlgafvgxgpdbl.supabase.co",
       },
     ],
   },
@@ -14,6 +14,6 @@ const nextConfig: NextConfig = {
     // which is why we disable the default next lint (during builds) here
     ignoreDuringBuilds: true,
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;

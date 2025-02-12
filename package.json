@@ -15,18 +15,15 @@
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "prebuild": "pnpm run lint",
     "dev": "next dev --turbopack",
-    "build": "pnpm run lint && next build",
+    "build": "next build",
     "start": "next start",
-    "next-lint": "next lint",
-    "lint": "eslint --cache --cache-location .next/cache/eslint/",
-    "lint-nocache": "eslint",
+    "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "lint-debug-config": "eslint --debug eslint.config.ts",
-    "lint-print-config": "eslint --print-config eslint.config.ts",
-    "lint-inspect-config": "eslint --inspect-config eslint.config.ts",
-    "format": "prettier --check --ignore-path .gitignore .",
-    "format:fix": "prettier --write --ignore-path .gitignore ."
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "fix:all": "eslint --fix && prettier --write ."
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

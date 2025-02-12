@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { authWithGitHub } from "@/app/actions";
+import { authWithGitHub } from "@/app/actions/auth";
 import { Button } from "@/components/ui/button";
 
 export default function GitHubAuth() {

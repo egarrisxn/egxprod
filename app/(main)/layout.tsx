@@ -1,13 +1,16 @@
-import React from 'react'
-import Navbar from '@/components/navbar'
-import Footer from '@/components/footer'
+import MainNav from "@/components/main-nav";
+import Footer from "@/components/footer";
 
-export default function PublicLayout({children}: {children: React.ReactNode}) {
+export default function MainLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <>
-      <Navbar />
-      <main className='grid min-h-screen w-full grid-cols-1 p-4 lg:p-0'>{children}</main>
+      <MainNav />
+      <main className="min-h-screen flex-1 p-4 sm:p-6">{children}</main>
       <Footer />
     </>
-  )
+  );
 }

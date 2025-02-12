@@ -1,12 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Not Found",
-};
-
 export default function NotFoundPage() {
   return (
     <main className="mn-h-screen p-4">

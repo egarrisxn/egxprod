@@ -9,11 +9,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  eslint: {
-    // we have added a lint command to the package.json build script
-    // which is why we disable the default next lint (during builds) here
-    ignoreDuringBuilds: true,
-  },
 };
 
 export default nextConfig;

@@ -16,5 +16,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/register`,
       lastModified: new Date(),
     },
+    {
+      url: `${baseUrl}/auth-verify`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/auth-error`,
+      lastModified: new Date(),
+    },
   ];
 }

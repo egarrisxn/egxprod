@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { User } from "lucide-react";
-import { signOut } from "@/app/actions/auth";
+import { signOut } from "@/app/actions";
 import { createClient } from "@/utils/supabase/server";
 import {
   DropdownMenu,

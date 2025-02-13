@@ -1,14 +1,11 @@
-import * as React from "react";
 import { createClient } from "@/utils/supabase/server";
-import generateMetadata from "@/utils/seo";
 
 import type { Metadata } from "next";
 
-export const metadata: Metadata = generateMetadata({
-  path: "/profile",
+export const metadata: Metadata = {
   title: "Profile | xprod",
   description: "Your profile page.",
-});
+};
 
 export default async function ProfilePage() {
   const supabase = await createClient();

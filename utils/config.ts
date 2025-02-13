@@ -12,11 +12,11 @@ type SiteConfig = {
   };
 };
 
-// const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
-//   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-//   : 'http://localhost:3000'
+const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "http://localhost:3000";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL!;
+// const baseUrl = process.env.NEXT_PUBLIC_BASE_URL!;
 
 export const siteConfig: SiteConfig = {
   name: "xprod ",

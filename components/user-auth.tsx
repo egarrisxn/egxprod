@@ -7,7 +7,7 @@ import {
   signUpWithEmail,
   authWithGoogle,
   authWithGitHub,
-} from "@/app/actions/auth";
+} from "@/app/actions";
 import { formSchema, type formValueType } from "@/utils/schema";
 import { Form } from "@/components/ui/form";
 import { InputForm } from "@/components/ui/input-form";

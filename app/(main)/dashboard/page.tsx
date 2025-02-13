@@ -1,14 +1,11 @@
-import * as React from "react";
 import { createClient } from "@/utils/supabase/server";
-import generateMetadata from "@/utils/seo";
 
 import type { Metadata } from "next";
 
-export const metadata: Metadata = generateMetadata({
-  path: "/dashboard",
-  title: "Dashboard | xprod",
+export const metadata: Metadata = {
+  title: "Dashboard",
   description: "Your dashboard page.",
-});
+};
 
 export default async function DashboardPage() {
   const supabase = await createClient();

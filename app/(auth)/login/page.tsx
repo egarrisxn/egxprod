@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import UserAuth from "@/components/user-auth";
 import {
@@ -9,13 +8,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import generateMetadata from "@/utils/seo";
 
-export const metadata: Metadata = generateMetadata({
-  path: "/login",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Log In | xprod",
   description: "Log in and get started with xprod.",
-});
+};
 
 export default function LogInPage() {
   return (

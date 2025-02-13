@@ -1,8 +1,10 @@
-import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "./theme-provider";
-import { siteConfig } from "@/utils/config";
 import { Toaster } from "react-hot-toast";
+import { ThemeProvider } from "@/components/providers";
+import { siteConfig } from "@/utils/config";
+
+import type { Metadata, Viewport } from "next";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,8 +19,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  title: siteConfig.name,
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.description,
   referrer: "origin-when-cross-origin",
   applicationName: siteConfig.name,
@@ -29,6 +33,7 @@ export const metadata: Metadata = {
     },
   ],
   creator: `Ethan G. ${siteConfig.links.website}`,
+  metadataBase: new URL(siteConfig.url),
   keywords: [
     "Next.js",
     "React",
